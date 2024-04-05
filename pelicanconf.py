@@ -1,7 +1,9 @@
 AUTHOR = 'Alexander Cedergren'
 SITENAME = 'The Solutions Edge'
 SITEURL = 'https://www.solutionsedge.io'
+
 TIMEZONE = 'Europe/Stockholm'
+
 DEFAULT_LANG = 'en'
 
 SUBTITLE = 'The Solutions Edge'
@@ -9,20 +11,37 @@ SUBTEXT = ('A Solutions Engineering, Cloud Security and Edge Computing Blog. '
            'The Solutions Edge is a new blog by Alexander Cedergren. Here I will discuss the ins and outs of art of Solutions Engineering and tech topics related to my day-day job.')
 
 COPYRIGHT = '©2024'
+
 PATH = 'content'
+
 THEME = 'themes/papyrus'
 THEME_STATIC_PATHS = ['static']
+
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['readtime', 'search', 'neighbors', 'sitemap','pelican-toc']
+PLUGINS = ['readtime', 'search', 'neighbors', 'sitemap','pelican-toc','sitemap']
 STATIC_PATHS = [
     'images',
     'favicon/favicon.ico',
     'extra/robots.txt',
     ]
+
 EXTRA_PATH_METADATA = {
     'extra/robots.txt': {'path': 'robots.txt'},
     'favicon/favicon.ico': {'path': 'favicon.ico'},
     }
+
+#Image Process Plugin settings
+IMAGE_PROCESS = {
+    "thumb": {
+        "type": "image",
+        "ops": ["crop 0 0 50% 50%", "scale_out 150 150 True", "crop 0 0 150 150"],
+    },
+    "article-image": {
+        "type": "image",
+        "ops": ["scale_in 300 300 True"],
+    },
+}
+
 DISPLAY_PAGES_ON_MENU = True
 DIRECT_TEMPLATES = (('index', 'search', 'tags', 'categories', 'archives',))
 PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': None, 'archives': 24,}
@@ -67,7 +86,7 @@ SHARE = (
 DEFAULT_PAGINATION = 8
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 # DISQUS_SITENAME = ''
 # GOOGLE_ANALYTICS = ''

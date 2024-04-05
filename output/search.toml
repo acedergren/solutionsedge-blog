@@ -3,6 +3,11 @@ html_selector = "main"
 base_directory = "output"
 
 [[input.files]]
+path = "why-another-tech-blog.html"
+url = "/why-another-tech-blog.html"
+title = "Why Another Tech blog?"
+
+[[input.files]]
 path = "akamai-cncf-golden-member.html"
 url = "/akamai-cncf-golden-member.html"
 title = "Akamai CNCF Golden Member"
@@ -16,8 +21,3 @@ title = "How to Be Successful as a Solutions Engineer"
 path = "nimble-learning-and-situational-adaptability.html"
 url = "/nimble-learning-and-situational-adaptability.html"
 title = "Nimble Learning and Situational Adaptability"
-
-[[input.files]]
-path = "hello-world.html"
-url = "/hello-world.html"
-title = "Hello World!"
