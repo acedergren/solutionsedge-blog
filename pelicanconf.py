@@ -10,10 +10,10 @@ SUBTEXT = ('A Solutions Engineering, Cloud Security and Edge Computing Blog. '
 
 COPYRIGHT = '©2024'
 PATH = 'content'
-THEME = 'themes/Papyrus'
+THEME = 'themes/papyrus'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['readtime', 'search', 'neighbors', 'sitemap',]
+PLUGINS = ['readtime', 'search', 'neighbors', 'sitemap','pelican-toc']
 STATIC_PATHS = [
     'images',
     'favicon/favicon.ico',
