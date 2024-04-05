@@ -1,0 +1,23 @@
+[input]
+html_selector = "main"
+base_directory = "output"
+
+[[input.files]]
+path = "akamai-cncf-golden-member.html"
+url = "/akamai-cncf-golden-member.html"
+title = "Akamai CNCF Golden Member"
+
+[[input.files]]
+path = "how-to-be-successful-as-a-solutions-engineer.html"
+url = "/how-to-be-successful-as-a-solutions-engineer.html"
+title = "How to Be Successful as a Solutions Engineer"
+
+[[input.files]]
+path = "nimble-learning-and-situational-adaptability.html"
+url = "/nimble-learning-and-situational-adaptability.html"
+title = "Nimble Learning and Situational Adaptability"
+
+[[input.files]]
+path = "hello-world.html"
+url = "/hello-world.html"
+title = "Hello World!"
