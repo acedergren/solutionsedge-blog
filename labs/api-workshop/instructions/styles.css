@@ -1,0 +1,542 @@
+/* styles.css */
+
+/* =========================================
+   CSS Variables for Light and Dark Themes
+   ========================================= */
+
+/* Light Theme Variables */
+:root {
+    /* Primary Colors */
+    --primary-color: #003366; /* Deep Blue */
+    --accent-color: #007BFF;  /* Bright Blue */
+
+    /* Background Colors */
+    --background-color: #FFFFFF;        /* White */
+    --secondary-background: #F5F5F5;    /* Light Gray */
+    --footer-background: #333333;       /* Dark Gray */
+
+    /* Text Colors */
+    --text-color: #333333;              /* Dark Text */
+    --footer-text: #FFFFFF;             /* White Text in Footer */
+
+    /* Link Colors */
+    --link-color: #FFFFFF;               /* White Links in Header */
+    --link-hover-color: #CCCCCC;         /* Light Gray on Hover */
+    --link-color-body: #009cde;
+
+    /* Button Colors */
+    --button-background: #007BFF;       /* Bright Blue Buttons */
+    --button-hover-background: #0056b3; /* Darker Blue on Hover */
+
+    /* Header and Navigation */
+    --header-background-color: #003366; /* Deep Blue */
+    --header-text-color: #FFFFFF;        /* White Text */
+    --nav-background-color: #0055a5;     /* Medium Blue */
+    --nav-text-color: #FFFFFF;           /* White Text */
+
+    /* Other Colors */
+    --border-color: #E0E0E0;             /* Light Border */
+}
+
+/* Dark Theme Variables */
+body.dark-mode {
+    /* Primary Colors */
+    --primary-color: #1E1E1E; /* Almost Black */
+    --accent-color: #66B2FF;  /* Light Blue */
+
+    /* Background Colors */
+    --background-color: #1E1E1E;        /* Almost Black */
+    --secondary-background: #2E2E2E;    /* Dark Gray */
+    --footer-background: #1E1E1E;       /* Almost Black */
+
+    /* Text Colors */
+    --text-color: #FFFFFF;              /* White Text */
+    --footer-text: #FFFFFF;             /* White Text in Footer */
+
+    /* Link Colors */
+    --link-color: #FFFFFF;               /* White Links in Header */
+    --link-hover-color: #CCCCCC;         /* Light Gray on Hover */
+
+    /* Button Colors */
+    --button-background: #3399FF;       /* Light Blue Buttons */
+    --button-hover-background: #1E6FA8; /* Darker Blue on Hover */
+
+    /* Header and Navigation */
+    --header-background-color: #1E1E1E; /* Almost Black */
+    --header-text-color: #FFFFFF;        /* White Text */
+    --nav-background-color: #2E2E2E;     /* Dark Gray */
+    --nav-text-color: #FFFFFF;           /* White Text */
+
+    /* Other Colors */
+    --border-color: #444444;             /* Darker Border */
+}
+
+/* =========================================
+   Global Styles
+   ========================================= */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* =========================================
+   Header Styles
+   ========================================= */
+
+header {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    padding: 20px 0;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Header Controls: External Links and Dark Mode Toggle */
+.header-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo and Brand Name Styling */
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between logo and text */
+    margin-bottom: 10px; /* Space between logo-text and title */
+}
+
+.brand-name {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em; /* Adjust to match logo size */
+    color: var(--header-text-color);
+}
+
+/* Logo Styling */
+header .logo {
+    width: 83px; /* Set width as per SVG's width attribute */
+    height: auto;
+}
+
+/* Title Styling */
+header h1 {
+    font-size: 2.5em;
+    margin: 10px 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Description Paragraph Styling */
+header p {
+    font-size: 1.2em;
+    color: #CCCCCC;
+    max-width: 800px;
+    margin: 10px auto 20px;
+    text-align: center;
+}
+
+/* External Links Styling */
+.external-links a {
+    color: var(--link-color);
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.external-links a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+#darkModeToggle .moon-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    color:#FFFFFF
+}
+
+#darkModeToggle .sun-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* Change Moon and Sun Icon Color on Hover */
+#darkModeToggle:hover {
+    color: var(--accent-color);
+}
+
+/* =========================================
+   Navigation Styles
+   ========================================= */
+
+nav {
+    background-color: var(--nav-background-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--nav-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--accent-color);
+}
+
+/* Active Navigation Link Styling */
+nav ul li a.active {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+}
+
+/* =========================================
+   Main Content Styles
+   ========================================= */
+
+main {
+    padding: 40px 20px;
+    background-color: var(--secondary-background);
+}
+
+main section {
+    background-color: var(--background-color);
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+}
+
+main section h2 {
+    font-size: 2em;
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main section h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-top: 30px;
+}
+
+main section h4 {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+main ul, main ol {
+    margin-left: 20px;
+}
+
+main ul li, main ol li {
+    margin-bottom: 10px;
+}
+
+main a {
+    color: var(--link-color-body);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* =========================================
+   Done Toggle Button Styles
+   ========================================= */
+
+/* Remove default button styles */
+.done-toggle {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.done-toggle::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--text-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Checked state */
+.done-toggle.checked {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.done-toggle.checked::after {
+    display: block;
+    border-color: #fff; /* White checkmark for better contrast */
+}
+
+/* Hover Effects */
+.done-toggle:hover {
+    border-color: var(--accent-color);
+}
+
+body.dark-mode .done-toggle:hover {
+    border-color: #66B2FF;
+}
+
+/* =========================================
+   Collapsible Section Content
+   ========================================= */
+.section-content.collapsed {
+    display: none;
+}
+
+/* Transition for Smooth Collapse/Expand */
+.section-content {
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   Fade-In Animation Styles
+   ========================================= */
+
+/* Initial State for Fade-In Elements */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Visible State for Fade-In Elements */
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   Footer Styles
+   ========================================= */
+
+footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* =========================================
+   Scroll-to-Top Button Styling
+   ========================================= */
+
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: var(--button-background);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--button-hover-background);
+    opacity: 0.8;
+}
+
+/* =========================================
+   Button Styles
+   ========================================= */
+
+button, .button {
+    background-color: var(--button-background);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+    background-color: var(--button-hover-background);
+}
+
+/* =========================================
+   Hamburger Menu Styles
+   ========================================= */
+
+#hamburgerMenu {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text-color);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #hamburgerMenu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        background-color: var(--nav-background-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* Adjust Scroll-to-Top Button Position for Mobile */
+    #scrollToTopBtn {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* Search Input Styling for Mobile */
+    #searchInput {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Adjust header-controls for mobile */
+    .header-controls {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    /* External Links Styling for Mobile */
+    .external-links a {
+        margin: 0 5px;
+    }
+}
+
+/* =========================================
+   Search Input Styling
+   ========================================= */
+
+/* Search Input Styling */
+#searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+body.dark-mode #searchInput {
+    background-color: #2E2E2E;
+    color: #FFFFFF;
+    border: 1px solid #444444;
+}
+
+#searchInput::placeholder {
+    color: #999999;
+}
+
+/* =========================================
+   Focus Styles for Accessibility
+   ========================================= */
+a:focus, button:focus, .done-toggle:focus, #searchInput:focus {
+    outline: 2px dashed var(--accent-color);
+    outline-offset: 4px;
+}

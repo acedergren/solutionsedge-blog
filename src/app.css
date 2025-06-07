@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    @apply bg-md-dark-surface text-md-dark-on-surface;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  /* Material Design 3 Elevation Shadows for Dark Theme */
+  .elevation-1 {
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .elevation-2 {
+    box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .elevation-3 {
+    box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .elevation-4 {
+    box-shadow: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .elevation-5 {
+    box-shadow: 0 8px 12px 6px rgba(0, 0, 0, 0.15), 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer components {
+  /* Material Design 3 Card */
+  .md-card {
+    @apply bg-md-dark-surface-container rounded-xl p-6 elevation-1 transition-shadow hover:elevation-2;
+  }
+
+  /* Material Design 3 Button */
+  .md-button {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  .md-button-filled {
+    @apply md-button bg-md-dark-primary text-md-dark-on-primary hover:shadow-lg hover:shadow-md-dark-primary/25;
+  }
+
+  .md-button-tonal {
+    @apply md-button bg-md-dark-primary/20 text-md-dark-primary hover:bg-md-dark-primary/30;
+  }
+
+  .md-button-outlined {
+    @apply md-button border border-md-dark-outline text-md-dark-primary hover:bg-md-dark-primary/10;
+  }
+
+  .md-button-text {
+    @apply md-button text-md-dark-primary hover:bg-md-dark-primary/10;
+  }
+
+  /* Material Design 3 Chip */
+  .md-chip {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-md-dark-surface-container-high text-md-dark-on-surface-variant hover:bg-md-dark-surface-container-highest transition-colors;
+  }
+
+  /* Code blocks with syntax highlighting */
+  .code-block {
+    @apply rounded-lg overflow-hidden my-6 bg-md-dark-surface-container;
+  }
+
+  .code-block-header {
+    @apply px-4 py-2 bg-md-dark-surface-container-high text-md-dark-on-surface-variant text-sm font-mono flex items-center justify-between;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    @apply w-3 h-3;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-md-dark-surface;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-md-dark-outline rounded-full hover:bg-md-dark-on-surface-variant;
+  }
+
+  /* Selection colors */
+  ::selection {
+    @apply bg-md-dark-primary/30 text-md-dark-on-surface;
+  }
+}
