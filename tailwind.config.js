@@ -4,61 +4,71 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Material Design 3 Color System
+        // Medium-inspired color palette with Material Design 3 structure
         'md': {
-          // Primary - Teal from logo
-          'primary': '#00838f',
+          // Primary - Medium green accent
+          'primary': '#1a8917',
           'on-primary': '#ffffff',
-          'primary-container': '#00bcd4',
-          'on-primary-container': '#002f33',
+          'primary-container': '#e8f5e8',
+          'on-primary-container': '#0d470c',
           
-          // Secondary
-          'secondary': '#546e7a',
+          // Secondary - Neutral grays
+          'secondary': '#757575',
           'on-secondary': '#ffffff',
-          'secondary-container': '#cfd8dc',
-          'on-secondary-container': '#1a282e',
+          'secondary-container': '#f5f5f5',
+          'on-secondary-container': '#292929',
           
-          // Tertiary
-          'tertiary': '#5e35b1',
+          // Tertiary - Blue accent
+          'tertiary': '#1976d2',
           'on-tertiary': '#ffffff',
-          'tertiary-container': '#ede7f6',
-          'on-tertiary-container': '#1a0033',
+          'tertiary-container': '#e3f2fd',
+          'on-tertiary-container': '#0d47a1',
           
           // Error
-          'error': '#ba1a1a',
+          'error': '#d32f2f',
           'on-error': '#ffffff',
-          'error-container': '#ffdad6',
-          'on-error-container': '#410002',
+          'error-container': '#ffebee',
+          'on-error-container': '#b71c1c',
           
-          // Surface - Dark theme
-          'surface': '#121212',
-          'surface-dim': '#0d0d0d',
-          'surface-bright': '#3a3a3a',
-          'surface-variant': '#424242',
-          'on-surface': '#e1e1e1',
-          'on-surface-variant': '#c4c4c4',
-          'surface-container-lowest': '#0a0a0a',
-          'surface-container-low': '#1a1a1a',
-          'surface-container': '#1e1e1e',
-          'surface-container-high': '#282828',
-          'surface-container-highest': '#333333',
+          // Surface - Clean whites and grays
+          'surface': '#ffffff',
+          'surface-dim': '#fafafa',
+          'surface-bright': '#ffffff',
+          'surface-variant': '#f5f5f5',
+          'on-surface': '#191919',
+          'on-surface-variant': '#757575',
+          'surface-container-lowest': '#ffffff',
+          'surface-container-low': '#fafafa',
+          'surface-container': '#f5f5f5',
+          'surface-container-high': '#eeeeee',
+          'surface-container-highest': '#e0e0e0',
+          
+          // Dark mode surfaces
+          'dark-surface': '#191919',
+          'dark-surface-dim': '#000000',
+          'dark-surface-bright': '#2c2c2c',
+          'dark-surface-variant': '#242424',
+          'dark-on-surface': '#ffffff',
+          'dark-on-surface-variant': '#b3b3b3',
           
           // Outline
-          'outline': '#8e8e8e',
-          'outline-variant': '#444444',
+          'outline': '#e0e0e0',
+          'outline-variant': '#f0f0f0',
+          'dark-outline': '#3a3a3a',
+          'dark-outline-variant': '#2a2a2a',
           
           // Other
           'shadow': '#000000',
           'scrim': '#000000',
-          'inverse-surface': '#e3e3e3',
-          'inverse-on-surface': '#303030',
-          'inverse-primary': '#006874',
+          'inverse-surface': '#191919',
+          'inverse-on-surface': '#ffffff',
+          'inverse-primary': '#4caf50',
         }
       },
       fontFamily: {
-        'sans': ['Roboto', 'system-ui', 'sans-serif'],
-        'display': ['Roboto', 'system-ui', 'sans-serif'],
-        'mono': ['Roboto Mono', 'monospace'],
+        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif'],
+        'serif': ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+        'mono': ['Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
       borderRadius: {
         'md': '12px',
