@@ -1,43 +1,131 @@
-# The Solutions Edge
+# The Solutions Edge Blog
 
-Welcome to The Solutions Edge, your portal to explore the fascinating world of solutions engineering, cloud technologies, and cybersecurity. This repository hosts the source code for The Solutions Edge blog, powered by SvelteKit.
-
-## About The Solutions Edge
-
-SolutionsEdge is more than just a blog; it's a platform dedicated to providing insightful content, tutorials, and discussions on various aspects of solutions engineering, cloud computing, and security. Whether you're a seasoned professional or an aspiring enthusiast, SolutionsEdge aims to be your trusted resource for learning, exploration, and practical insights.
+A modern blog built with SvelteKit, Material Design 3, and Tailwind CSS. Optimized for static site generation and deployment to Linode Object Storage.
 
 ## Features
 
-- **Informative Articles**: Dive deep into tutorials, guides, and discussions covering a wide range of topics in solutions engineering, cloud technologies, and cybersecurity.
-- **Code Samples**: Access code snippets, examples, and demos to enhance your understanding and apply concepts in real-world scenarios.
-- **Engaging Content**: Stay updated with the latest trends, best practices, and innovations shaping the tech industry, curated by experts in the field.
-- **Community Interaction**: Join the discussion, share your insights, and connect with like-minded individuals passionate about technology and problem-solving.
-
-## Deployment Details
-
-SolutionsEdge is hosted on Linode, utilizing Linode's Object Store for scalable storage. To ensure optimal performance and global accessibility, the blog is distributed using the Akamai Content Delivery Network (CDN).
+- 🎨 Material Design 3 theming
+- 🚀 Static Site Generation (SSG) with SvelteKit
+- 💨 Tailwind CSS for utility-first styling
+- 📱 Fully responsive design
+- 🌙 Dark theme by default
+- ⚡ Optimized for performance
+- 🔍 SEO-friendly
+- 📦 Ready for Linode Object Storage deployment
 
 ## Getting Started
 
-To set up The Solutions Edge locally and explore the content:
+### Prerequisites
 
-1. **Clone the Repository**: `git clone https://github.com/yourusername/solutionsedge-blog.git`
-2. **Install Dependencies**: `npm install`
-3. **Run Development Server**: `npm run dev`
-4. **Build for Production**: `npm run build`
-5. **Preview Production Build**: `npm run preview`
-Contributing
-Contributions to SolutionsEdge are welcome! Whether it's fixing a typo, adding a new tutorial, or suggesting improvements, your input helps make this platform better for everyone. To contribute:
+- Node.js 18+ 
+- npm or pnpm
 
-Fork the repository
-Create your feature branch (git checkout -b feature/AmazingFeature)
-Commit your changes (git commit -am 'Add some AmazingFeature')
-Push to the branch (git push origin feature/AmazingFeature)
-Open a pull request
-Support
-If you encounter any issues or have questions regarding SolutionsEdge, feel free to open an issue in this repository. We're here to help and improve the platform together.
+### Installation
 
-Connect with Us
-Website: www.solutionsedge.io
-LinkedIn: Alexander Cedergren
-Let's embark on this journey of exploration and discovery together. Welcome to The Solutions Edge! 🚀
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view the site.
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+The static site will be generated in the `build` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Deployment to Linode Object Storage
+
+1. Build the static site:
+   ```bash
+   npm run build
+   ```
+
+2. Install Linode CLI:
+   ```bash
+   pip install linode-cli
+   ```
+
+3. Configure Linode CLI with your Object Storage credentials
+
+4. Create a bucket:
+   ```bash
+   linode-cli obj mb s3://your-bucket-name
+   ```
+
+5. Upload the build directory:
+   ```bash
+   linode-cli obj sync ./build s3://your-bucket-name --recursive --acl public-read
+   ```
+
+6. Configure the bucket for static website hosting
+
+## Project Structure
+
+```
+solutionsedge-blog/
+├── src/
+│   ├── routes/          # SvelteKit routes
+│   ├── lib/             # Shared components and utilities
+│   │   ├── components/  # Reusable components
+│   │   └── styles/      # Style utilities
+│   ├── app.html         # HTML template
+│   ├── app.css          # Global styles
+│   └── app.d.ts         # TypeScript declarations
+├── static/              # Static assets
+├── build/               # Production build (generated)
+└── svelte.config.js     # SvelteKit configuration
+```
+
+## Material Design 3 Components
+
+The project includes custom Material Design 3 components:
+
+- **Buttons**: Filled, Tonal, Outlined, Text, and Elevated variants
+- **Cards**: Standard, Elevated, and Outlined variants
+- **Chips**: For tags and categories
+- **Navigation**: Top app bar with mobile drawer
+- **Typography**: Complete MD3 type scale
+- **Surface Containers**: Multiple elevation levels
+
+## Customization
+
+### Colors
+
+Edit the color palette in `tailwind.config.js` to match your brand:
+
+```js
+colors: {
+  'md': {
+    'primary': '#00838f',
+    'secondary': '#546e7a',
+    // ... other colors
+  }
+}
+```
+
+### Typography
+
+The project uses Roboto font family by default. Update in `app.css`:
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=YourFont:wght@300;400;500;700&display=swap');
+```
+
+## License
+
+MIT
