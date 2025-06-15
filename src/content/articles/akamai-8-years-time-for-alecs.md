@@ -50,8 +50,39 @@ To rapidly prototype ALECS, I partnered with Claude Code (Anthropic's AI develop
 
 This approach demonstrates the revolutionary speed and accuracy possible when humans collaborate effectively with AI.
 
+## See ALECS in Action
+
+### GitHub Repository
+
+<!-- Placeholder for GitHub screenshots -->
+<div class="github-screenshots">
+  <img src="/images/alecs-screenshots/repo-overview.png" alt="ALECS GitHub Repository Overview" class="w-full rounded-lg shadow-lg mb-4" />
+  <img src="/images/alecs-screenshots/code-structure.png" alt="ALECS Code Structure" class="w-full rounded-lg shadow-lg mb-4" />
+  <img src="/images/alecs-screenshots/mcp-integration.png" alt="MCP Integration Example" class="w-full rounded-lg shadow-lg mb-4" />
+</div>
+
+### Live Demo Video
+
+Watch ALECS in action as we demonstrate conversational infrastructure management with Claude:
+
+<!-- Video placeholder -->
+<div class="video-container aspect-video bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center mb-8">
+  <video id="alecs-demo" class="w-full h-full rounded-lg" controls preload="metadata">
+    <source src="/videos/alecs-demo.webm" type="video/webm">
+    <source src="/videos/alecs-demo.mp4" type="video/mp4">
+    <p>Your browser doesn't support HTML5 video. <a href="/videos/alecs-demo.mp4">Download the video</a>.</p>
+  </video>
+</div>
+
 ## Roadmap and Community Engagement
 
 ALECS is just beginning. Upcoming modules will enhance analytics, security configuration, and deeper multi-platform integrations. But its true potential depends on community collaboration.
 
 Join in, test it, and help shape the future of conversational infrastructure management.
+
+### Get Started
+
+- 🔗 **GitHub Repository**: [Coming Soon - Screenshots Above]
+- 📺 **Video Tutorial**: Upload your demo to `/static/videos/alecs-demo.mp4`
+- 📚 **Documentation**: Full setup and usage guides available in the repo
+- 💬 **Community**: Join the discussion and contribute your ideas

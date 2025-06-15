@@ -1,13 +1,17 @@
 {
   "name": "solutionsedge-blog",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
+  "license": "MPL-2.0",
+  "author": "Alexander Cedergren",
+  "description": "The Solutions Edge - A technical blog focusing on cloud computing, edge technologies, and solutions engineering",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "npm run process-videos || true && vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "process-videos": "node scripts/process-videos.js",
     "deploy": "./scripts/deploy-linode.sh"
   },
   "devDependencies": {
@@ -26,7 +30,11 @@
   },
   "type": "module",
   "dependencies": {
+    "@types/fluent-ffmpeg": "^2.1.27",
     "@types/marked": "^5.0.2",
-    "marked": "^15.0.12"
+    "@types/quill": "^2.0.14",
+    "fluent-ffmpeg": "^2.1.3",
+    "marked": "^15.0.12",
+    "quill": "^2.0.3"
   }
 }

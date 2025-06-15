@@ -9,17 +9,17 @@ excerpt: "The moment I realized I wasn't giving presentations—I was committing
 featured: true
 ---
 
-It was 3 PM on a Tuesday, and I was watching my prospect's CEO literally fight to keep his eyes open. My beautifully crafted 47-slide deck about our cloud infrastructure solution was technically perfect. Every feature meticulously documented. Every architecture diagram pristine. Every bullet point precisely aligned.
+It was 3 PM on a Tuesday, and I was watching my prospect's CTO literally fight to keep his eyes open. My beautifully crafted 47-slide deck about our cloud infrastructure solution was technically perfect. Every feature meticulously documented. Every architecture diagram pristine. Every bullet point precisely aligned.
 
 And I was killing him. Slowly. With PowerPoint.
 
-That evening, frustrated and defeated after losing yet another deal I thought was "in the bag," I stumbled upon a TEDx talk that would fundamentally change my approach to presales: David JP Phillips' "How to Avoid Death by PowerPoint."
+That evening, frustrated and defeated after feeling the customer didnt get it, I stumbled upon a TEDx talk that would fundamentally change my approach to presales: David JP Phillips' "How to Avoid Death by PowerPoint."
 
 ## The Moment Everything Clicked
 
 Phillips opened with a simple truth that hit me like a thunderbolt: **"PowerPoint is not the problem. We are."**
 
-I realized I'd been hiding behind my slides. Using them as a crutch. Treating presentations as information transfer sessions rather than human experiences. I wasn't presenting—I was performing a data dump with visual aids.
+I realized I'd been buring my customers brains with my slides. Treating presentations as information transfer sessions rather than human experiences. I wasn't presenting—I was performing a data dump with visual aids.
 
 ## The Science That Changed My Game
 

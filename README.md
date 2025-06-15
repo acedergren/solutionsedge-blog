@@ -126,6 +126,22 @@ The project uses Roboto font family by default. Update in `app.css`:
 @import url('https://fonts.googleapis.com/css2?family=YourFont:wght@300;400;500;700&display=swap');
 ```
 
-## License
+## 📝 License
 
-MIT
+This project is licensed under the **Mozilla Public License 2.0 (MPL-2.0)**.
+
+### What this means:
+
+- ✅ **You can**: Use, modify, distribute, and use in commercial projects
+- ✅ **You can**: Combine with proprietary code (file-level copyleft)
+- ⚠️ **You must**: Include the license and copyright notice
+- ⚠️ **You must**: Disclose source code for any modifications to MPL-licensed files
+- ❌ **You cannot**: Use trademark or hold contributors liable
+
+The MPL-2.0 is a "weak copyleft" license that strikes a balance between open source freedom and commercial usability. Unlike MIT, it requires sharing modifications to the licensed files, but unlike GPL, it allows combining with proprietary code.
+
+## 📄 Copyright
+
+Copyright (c) 2024 Alexander Cedergren
+
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
