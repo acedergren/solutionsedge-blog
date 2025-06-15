@@ -2,7 +2,7 @@
 id: 3
 title: "Why Kubernetes on Linode is the Perfect Match for Growing Startups"
 author: "Alexander Cedergren"
-date: "2024-01-22"
+date: "2024-02-20"
 tags: ["Kubernetes", "Linode", "Cloud Computing", "DevOps", "Startups"]
 description: "Discover why Linode Kubernetes Engine (LKE) offers the perfect balance of simplicity, performance, and cost-effectiveness for startups ready to scale."
 excerpt: "Not every startup needs the complexity of hyperscale clouds. Sometimes, the best solution is the one that just works—reliably, affordably, and without the PhD in cloud architecture."

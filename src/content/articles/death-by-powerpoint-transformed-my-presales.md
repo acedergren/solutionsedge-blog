@@ -2,7 +2,7 @@
 id: 4
 title: "How 'Death by PowerPoint' Transformed My Presales Game: Becoming the Message, Not the Slide Deck"
 author: "Alexander Cedergren"
-date: "2024-01-23"
+date: "2024-03-25"
 tags: ["Presales", "Presentation Skills", "Communication", "Leadership", "Personal Growth"]
 description: "Discovering David JP Phillips' approach to presentations revolutionized how I engage with customers. Learn how to become the focal point of your presentations and stop draining your audience's cognitive resources."
 excerpt: "The moment I realized I wasn't giving presentations—I was committing 'Death by PowerPoint'—everything changed. Now I'm the presentation, I'm the message. The slides? They're just there to support me, not drain customer brains."
@@ -41,14 +41,13 @@ Our working memory is like RAM—limited and easily overwhelmed. Every unnecessa
 ## My Transformation: From Slide Jockey to Storyteller
 
 ### Before: Death by PowerPoint
-- 47 slides for a 30-minute presentation
+- Marketing created bulk slides
 - Bullet points everywhere
 - Reading from slides
 - Complex diagrams explained while displayed
 - Me: A voice-over for my deck
 
 ### After: Presentations That Breathe
-- 12 slides for the same content
 - One message per slide
 - Mostly images and simple graphics
 - Slides appear just when needed
@@ -73,7 +72,7 @@ The slides support me; I don't support the slides. I've learned to:
 - Pause for impact
 - Tell stories that create emotional connections
 
-### 5. The Power of the Black Slide
+### 5. Its time to go to Night Vison mode!
 Sometimes the most powerful slide is no slide. I now use black slides during crucial storytelling moments, forcing all attention on me and my message. It's amazing how this simple technique commands focus.
 
 ## Real Results from Real Changes

@@ -40,10 +40,10 @@ export function parseMarkdown(content: string): { metadata: any; content: string
     metadata.readingTime = parseInt(metadata.readingTime);
   }
   
-  // Parse dates
-  if (metadata.date) {
-    metadata.date = new Date(metadata.date);
-  }
+  // Parse dates - keep as string for article processing
+  // if (metadata.date) {
+  //   metadata.date = new Date(metadata.date);
+  // }
   
   // Parse booleans
   if (metadata.featured) {
@@ -69,7 +69,7 @@ export function getAllArticles(): Article[] {
         avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(metadata.author || 'Anonymous')}&background=1a8917&color=fff`,
         bio: 'Solutions Engineer specializing in cloud and edge computing'
       },
-      publishedAt: metadata.date || new Date(),
+      publishedAt: new Date(metadata.date || '2024-01-01'),
       readingTime: metadata.readingTime || 5,
       tags: metadata.tags || [],
       imageUrl: metadata.image || `https://picsum.photos/800/400?random=${metadata.id || 1}`

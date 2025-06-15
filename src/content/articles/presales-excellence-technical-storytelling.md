@@ -2,7 +2,7 @@
 id: 2
 title: "The Art of Technical Storytelling: A Presales Engineer's Guide to Winning Hearts and Deals"
 author: "Alexander Cedergren"
-date: "2024-01-21"
+date: "2024-01-15"
 tags: ["Presales", "Solutions Engineering", "Communication", "Best Practices"]
 description: "Master the art of translating complex technical solutions into compelling narratives that resonate with both technical and business stakeholders."
 excerpt: "In presales, your technical expertise is only half the battle. The real magic happens when you can weave that knowledge into stories that inspire action and drive decisions."

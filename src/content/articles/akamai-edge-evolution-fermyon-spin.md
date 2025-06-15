@@ -2,7 +2,7 @@
 id: 5
 title: "Akamai's Edge Computing Evolution: From CDN to WebAssembly with Fermyon Spin"
 author: "Alexander Cedergren"
-date: "2024-01-24"
+date: "2024-04-30"
 tags: ["Akamai", "Edge Computing", "WebAssembly", "Fermyon", "Spin", "Cloud Native", "Developer Experience"]
 description: "Explore how Akamai's partnership with Fermyon and the Spin framework is revolutionizing edge computing, making it incredibly simple to build and deploy WebAssembly applications at the edge."
 excerpt: "The edge computing landscape just got a massive upgrade. With Fermyon Spin on Akamai, deploying WebAssembly apps to the edge is now as simple as 'spin deploy'. No more complexity, just pure developer joy."
@@ -18,7 +18,7 @@ Let me take you on this remarkable journey—from markup languages to microsecon
 ### Era 1: The CDN Pioneer Days (1998-2001)
 Akamai solved the fundamental problem of internet scale by caching static content at the edge. Images, CSS, JavaScript files—delivered from servers close to users. Revolutionary for its time, but limited to static assets.
 
-### Era 2: Edge Side Includes (ESI) Revolution (2001-2008)
+### Era 2: Edge Side Includes (ESI) Revolution (2001+)
 This is where things got interesting. ESI was Akamai's first foray into dynamic edge content:
 
 ```xml
@@ -64,7 +64,7 @@ public class EdgeRequestHandler extends EdgeletRequestHandler {
 
 EdgeJava was powerful but complex. You needed to understand Java, Akamai's APIs, and edge architectures. Deployment was measured in hours, not seconds.
 
-### Era 4: EdgeWorkers - JavaScript Everywhere (2015-2023)
+### Era 4: EdgeWorkers - JavaScript Everywhere (2019+)
 The industry was moving to JavaScript, and so did we:
 
 ```javascript
