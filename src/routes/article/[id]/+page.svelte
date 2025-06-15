@@ -1,60 +1,23 @@
 <script lang="ts">
-	import type { Article } from '$lib/types';
+	import type { PageData } from './$types';
+	import { marked } from 'marked';
 	
-	// Mock article data - replace with actual data fetching
-	const article: Article = {
-		id: '1',
-		title: 'The Edge of Tomorrow: How Edge Computing is Reshaping Cloud Architecture',
-		excerpt: 'As we push computing closer to where data is generated, we\'re not just improving latency—we\'re fundamentally reimagining how distributed systems work.',
-		content: `
-			<p>The landscape of cloud computing is undergoing a fundamental transformation. As we generate more data at the edge of our networks—from IoT devices, autonomous vehicles, and smart cities—the traditional centralized cloud model is showing its limitations. Enter edge computing: a paradigm that brings computation and data storage closer to the sources of data.</p>
-
-			<h2>The Latency Problem</h2>
-			<p>When milliseconds matter, the speed of light becomes your enemy. A round trip from San Francisco to a data center in Virginia takes approximately 60 milliseconds under ideal conditions. For autonomous vehicles making split-second decisions, or augmented reality applications requiring real-time responses, this latency is unacceptable.</p>
-
-			<p>Edge computing solves this by processing data where it's generated. Instead of sending all data to distant cloud servers, edge nodes handle time-sensitive operations locally, only forwarding what's necessary to the cloud for deeper analysis or long-term storage.</p>
-
-			<blockquote>
-				"The edge isn't replacing the cloud—it's extending it. We're creating a continuum of compute that spans from centralized data centers to the furthest reaches of our networks."
-			</blockquote>
-
-			<h2>Architecture Patterns for the Edge</h2>
-			<p>Building for the edge requires rethinking traditional cloud architectures. Here are three patterns that have emerged as best practices:</p>
-
-			<h3>1. Hierarchical Processing</h3>
-			<p>Data flows through multiple tiers, with each layer handling different aspects of processing. Edge devices perform initial filtering and real-time responses, regional nodes aggregate and analyze patterns, and cloud data centers handle machine learning model training and historical analysis.</p>
-
-			<h3>2. Federated Learning</h3>
-			<p>Instead of centralizing all data for ML training, models are trained locally on edge devices and only model updates are shared. This preserves privacy while still benefiting from collective learning.</p>
-
-			<h3>3. Event-Driven Architectures</h3>
-			<p>Edge systems must be reactive and efficient. Event-driven patterns allow edge nodes to process data streams in real-time, triggering actions only when specific conditions are met.</p>
-
-			<h2>Challenges and Solutions</h2>
-			<p>Edge computing isn't without its challenges. Resource constraints, network reliability, and security concerns all require careful consideration.</p>
-
-			<p><strong>Resource Constraints:</strong> Edge devices often have limited CPU, memory, and storage. Solutions include lightweight containerization (think K3s instead of full Kubernetes), efficient data structures, and intelligent caching strategies.</p>
-
-			<p><strong>Network Reliability:</strong> Edge nodes must function even when disconnected from the cloud. This requires robust offline-first architectures with eventual consistency models and conflict resolution strategies.</p>
-
-			<p><strong>Security:</strong> With compute distributed across potentially thousands of nodes, the attack surface expands dramatically. Zero-trust architectures, hardware-based security modules, and automated security updates become critical.</p>
-
-			<h2>The Future is Distributed</h2>
-			<p>As 5G networks roll out and IoT devices proliferate, edge computing will become not just useful, but essential. We're moving toward a world where intelligence is embedded everywhere—from traffic lights to factory floors to retail stores.</p>
-
-			<p>The organizations that thrive will be those that can effectively orchestrate this distributed intelligence, creating seamless experiences that leverage the best of both edge and cloud computing. The future isn't about choosing between edge and cloud—it's about using both in harmony to create systems that are responsive, resilient, and intelligent.</p>
-
-			<p>Welcome to the edge. The future of computing is already here—it's just more evenly distributed.</p>
-		`,
+	export let data: PageData;
+	
+	// Convert markdown to HTML
+	const articleHtml = marked(data.article.content);
+	
+	const article = {
+		...data.article,
+		content: articleHtml,
 		author: {
-			name: 'Alexander Cedergren',
-			avatar: 'https://ui-avatars.com/api/?name=Alexander+Cedergren&background=1a8917&color=fff',
+			name: data.article.author,
+			avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(data.article.author)}&background=1a8917&color=fff`,
 			bio: 'Solutions Engineer specializing in cloud and edge computing. Building distributed systems that scale.'
 		},
-		publishedAt: new Date('2024-01-15'),
-		readingTime: 8,
-		tags: ['Edge Computing', 'Cloud Architecture', 'Distributed Systems', 'IoT', '5G'],
-		imageUrl: 'https://picsum.photos/1200/600?random=1'
+		publishedAt: new Date(data.article.date),
+		readingTime: Math.ceil(data.article.content.split(' ').length / 200),
+		imageUrl: `https://picsum.photos/1200/600?random=${data.article.id}`
 	};
 	
 	function formatDate(date: Date): string {
@@ -141,7 +104,7 @@
 			<!-- Tags -->
 			<div class="flex flex-wrap gap-2 pb-8">
 				{#each article.tags as tag}
-					<a href="/topic/{tag.toLowerCase().replace(' ', '-')}" class="tag">
+					<a href="/topic/{tag.toLowerCase().replace(/\s+/g, '-')}.html" class="tag">
 						{tag}
 					</a>
 				{/each}
