@@ -15,8 +15,8 @@ const config = {
 			// default options are shown
 			pages: 'build',
 			assets: 'build',
-			fallback: undefined,
-			precompress: false,
+			fallback: '404.html',
+			precompress: true,
 			strict: true
 		}),
 		prerender: {

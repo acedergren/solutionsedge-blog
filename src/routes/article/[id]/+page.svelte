@@ -10,13 +10,7 @@
 	const article = {
 		...data.article,
 		content: articleHtml,
-		author: {
-			name: data.article.author?.name || data.article.author,
-			avatar: data.article.author?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.article.author?.name || data.article.author)}&background=1a8917&color=fff`,
-			bio: data.article.author?.bio || 'Solutions Engineer specializing in cloud and edge computing. Building distributed systems that scale.'
-		},
-		publishedAt: new Date(data.article.publishedAt || data.article.date),
-		readingTime: data.article.readingTime || Math.ceil(data.article.content.split(' ').length / 200),
+		publishedAt: data.article.publishedAt,
 		imageUrl: data.article.imageUrl || `https://picsum.photos/1200/600?random=${data.article.id}`
 	};
 	

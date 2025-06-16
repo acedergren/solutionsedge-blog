@@ -1,0 +1,212 @@
+{
+  "timestamp": "2025-06-16T05:10:55.913Z",
+  "sourceFiles": {
+    "src/app.d.ts": {
+      "path": "src/app.d.ts",
+      "size": 268,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/lib/content.ts": {
+      "path": "src/lib/content.ts",
+      "size": 3149,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/lib/types.ts": {
+      "path": "src/lib/types.ts",
+      "size": 491,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/+error.svelte": {
+      "path": "src/routes/+error.svelte",
+      "size": 975,
+      "exports": [],
+      "imports": [
+        {
+          "source": "$app/stores",
+          "specifiers": [
+            "page"
+          ]
+        }
+      ],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/+layout.svelte": {
+      "path": "src/routes/+layout.svelte",
+      "size": 12540,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/+layout.ts": {
+      "path": "src/routes/+layout.ts",
+      "size": 238,
+      "exports": [
+        "prerender",
+        "ssr",
+        "trailingSlash"
+      ],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/+page.svelte": {
+      "path": "src/routes/+page.svelte",
+      "size": 7617,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/about/+page.svelte": {
+      "path": "src/routes/about/+page.svelte",
+      "size": 3880,
+      "exports": [],
+      "imports": [
+        {
+          "source": "$app/stores",
+          "specifiers": [
+            "page"
+          ]
+        }
+      ],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/article/[id]/+page.svelte": {
+      "path": "src/routes/article/[id]/+page.svelte",
+      "size": 6233,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/article/[id]/+page.ts": {
+      "path": "src/routes/article/[id]/+page.ts",
+      "size": 556,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/contact/+page.svelte": {
+      "path": "src/routes/contact/+page.svelte",
+      "size": 5135,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/editor/+page.svelte": {
+      "path": "src/routes/editor/+page.svelte",
+      "size": 9722,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/help/+page.svelte": {
+      "path": "src/routes/help/+page.svelte",
+      "size": 5317,
+      "exports": [],
+      "imports": [
+        {
+          "source": "$app/stores",
+          "specifiers": [
+            "page"
+          ]
+        }
+      ],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/privacy/+page.svelte": {
+      "path": "src/routes/privacy/+page.svelte",
+      "size": 2833,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/terms/+page.svelte": {
+      "path": "src/routes/terms/+page.svelte",
+      "size": 3296,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/topic/[slug]/+page.svelte": {
+      "path": "src/routes/topic/[slug]/+page.svelte",
+      "size": 10242,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/topic/[slug]/+page.ts": {
+      "path": "src/routes/topic/[slug]/+page.ts",
+      "size": 643,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    },
+    "src/routes/topics/+page.svelte": {
+      "path": "src/routes/topics/+page.svelte",
+      "size": 4627,
+      "exports": [],
+      "imports": [],
+      "usedExports": {},
+      "usedImports": {}
+    }
+  },
+  "bundleFiles": {},
+  "unusedExports": [
+    {
+      "file": "src/routes/+layout.ts",
+      "export": "prerender"
+    },
+    {
+      "file": "src/routes/+layout.ts",
+      "export": "ssr"
+    },
+    {
+      "file": "src/routes/+layout.ts",
+      "export": "trailingSlash"
+    }
+  ],
+  "unusedImports": [],
+  "treeShakingEfficiency": 100,
+  "recommendations": [
+    {
+      "type": "unused-exports",
+      "severity": "medium",
+      "message": "Found 3 potentially unused exports",
+      "details": [
+        {
+          "file": "src/routes/+layout.ts",
+          "export": "prerender"
+        },
+        {
+          "file": "src/routes/+layout.ts",
+          "export": "ssr"
+        },
+        {
+          "file": "src/routes/+layout.ts",
+          "export": "trailingSlash"
+        }
+      ]
+    }
+  ]
+}

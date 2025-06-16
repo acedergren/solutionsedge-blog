@@ -1,0 +1,93 @@
+{
+  "timestamp": "2025-06-16T05:10:53.001Z",
+  "complexity": {
+    "cyclomatic": {
+      "src/app.d.ts": 1,
+      "src/lib/content.ts": 28,
+      "src/lib/types.ts": 5,
+      "src/routes/+error.svelte": 1,
+      "src/routes/+layout.svelte": 12,
+      "src/routes/+layout.ts": 1,
+      "src/routes/+page.svelte": 5,
+      "src/routes/about/+page.svelte": 1,
+      "src/routes/article/[id]/+page.svelte": 3,
+      "src/routes/article/[id]/+page.ts": 3,
+      "src/routes/contact/+page.svelte": 1,
+      "src/routes/editor/+page.svelte": 21,
+      "src/routes/help/+page.svelte": 1,
+      "src/routes/topic/[slug]/+page.svelte": 5,
+      "src/routes/topic/[slug]/+page.ts": 4,
+      "src/routes/topics/+page.svelte": 2
+    },
+    "cognitive": {
+      "src/app.d.ts": 0,
+      "src/lib/content.ts": 16,
+      "src/lib/types.ts": 0,
+      "src/routes/+error.svelte": 0,
+      "src/routes/+layout.svelte": 14,
+      "src/routes/+layout.ts": 0,
+      "src/routes/+page.svelte": 0,
+      "src/routes/about/+page.svelte": 0,
+      "src/routes/article/[id]/+page.svelte": 0,
+      "src/routes/article/[id]/+page.ts": 2,
+      "src/routes/contact/+page.svelte": 0,
+      "src/routes/editor/+page.svelte": 48,
+      "src/routes/help/+page.svelte": 0,
+      "src/routes/topic/[slug]/+page.svelte": 0,
+      "src/routes/topic/[slug]/+page.ts": 0,
+      "src/routes/topics/+page.svelte": 0
+    },
+    "average": 5.875,
+    "highest": {
+      "file": "src/lib/content.ts",
+      "value": 28
+    }
+  },
+  "functions": {
+    "analyzed": 1,
+    "singleResponsibility": 1,
+    "oversized": [],
+    "parameters": {
+      "average": 0,
+      "excessive": []
+    }
+  },
+  "imports": {
+    "circular": [],
+    "unused": [],
+    "complex": []
+  },
+  "naming": {
+    "conventions": {
+      "camelCase": 101,
+      "PascalCase": 0,
+      "kebabCase": 0,
+      "inconsistent": []
+    },
+    "descriptiveness": {
+      "good": 99,
+      "poor": [
+        {
+          "file": "src/routes/article/[id]/+page.svelte",
+          "identifier": "data"
+        },
+        {
+          "file": "src/routes/editor/+page.svelte",
+          "identifier": "a"
+        }
+      ]
+    }
+  },
+  "technicalDebt": {
+    "todos": [],
+    "deprecatedAPIs": [],
+    "temporaryFixes": [],
+    "score": 100
+  },
+  "codeSmells": {
+    "duplicatedCode": [],
+    "longMethods": [],
+    "largeClasses": [],
+    "godObjects": []
+  }
+}

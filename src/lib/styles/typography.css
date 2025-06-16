@@ -1,0 +1,463 @@
+/* Material Design 3 Typography System - Dark Mode First */
+
+@layer base {
+  /* Typography Scale Variables */
+  :root {
+    /* Display */
+    --md-display-large-size: 3.5rem;
+    --md-display-large-line: 1.15;
+    --md-display-large-tracking: -0.02em;
+    --md-display-large-weight: 400;
+    
+    --md-display-medium-size: 2.75rem;
+    --md-display-medium-line: 1.2;
+    --md-display-medium-tracking: -0.01em;
+    --md-display-medium-weight: 400;
+    
+    --md-display-small-size: 2.25rem;
+    --md-display-small-line: 1.25;
+    --md-display-small-tracking: 0;
+    --md-display-small-weight: 400;
+    
+    /* Headline */
+    --md-headline-large-size: 2rem;
+    --md-headline-large-line: 1.3;
+    --md-headline-large-tracking: 0;
+    --md-headline-large-weight: 400;
+    
+    --md-headline-medium-size: 1.75rem;
+    --md-headline-medium-line: 1.35;
+    --md-headline-medium-tracking: 0;
+    --md-headline-medium-weight: 400;
+    
+    --md-headline-small-size: 1.5rem;
+    --md-headline-small-line: 1.4;
+    --md-headline-small-tracking: 0;
+    --md-headline-small-weight: 400;
+    
+    /* Title */
+    --md-title-large-size: 1.375rem;
+    --md-title-large-line: 1.45;
+    --md-title-large-tracking: 0;
+    --md-title-large-weight: 500;
+    
+    --md-title-medium-size: 1.125rem;
+    --md-title-medium-line: 1.5;
+    --md-title-medium-tracking: 0.01em;
+    --md-title-medium-weight: 500;
+    
+    --md-title-small-size: 0.875rem;
+    --md-title-small-line: 1.4;
+    --md-title-small-tracking: 0.01em;
+    --md-title-small-weight: 500;
+    
+    /* Body */
+    --md-body-large-size: 1.125rem;
+    --md-body-large-line: 1.75;
+    --md-body-large-tracking: 0.005em;
+    --md-body-large-weight: 400;
+    
+    --md-body-medium-size: 1rem;
+    --md-body-medium-line: 1.65;
+    --md-body-medium-tracking: 0.01em;
+    --md-body-medium-weight: 400;
+    
+    --md-body-small-size: 0.875rem;
+    --md-body-small-line: 1.6;
+    --md-body-small-tracking: 0.01em;
+    --md-body-small-weight: 400;
+    
+    /* Label */
+    --md-label-large-size: 0.875rem;
+    --md-label-large-line: 1.4;
+    --md-label-large-tracking: 0.01em;
+    --md-label-large-weight: 500;
+    
+    --md-label-medium-size: 0.75rem;
+    --md-label-medium-line: 1.35;
+    --md-label-medium-tracking: 0.02em;
+    --md-label-medium-weight: 500;
+    
+    --md-label-small-size: 0.6875rem;
+    --md-label-small-line: 1.3;
+    --md-label-small-tracking: 0.03em;
+    --md-label-small-weight: 500;
+    
+    /* Optimal Reading Width */
+    --md-reading-width: 42rem;
+    --md-reading-width-wide: 65rem;
+    
+    /* Vertical Rhythm */
+    --md-baseline: 0.5rem;
+    --md-paragraph-spacing: 1.75rem;
+    --md-section-spacing: 3rem;
+    
+    /* Font Stacks with Variable Font Support */
+    --md-font-sans: 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --md-font-serif: 'Source Serif 4', 'Georgia', 'Times New Roman', serif;
+    --md-font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  }
+  
+  /* Dark Mode Typography Adjustments */
+  .dark {
+    /* Slightly reduced font weights for better dark mode readability */
+    --md-display-large-weight: 300;
+    --md-display-medium-weight: 300;
+    --md-display-small-weight: 300;
+    --md-headline-large-weight: 300;
+    --md-headline-medium-weight: 300;
+    --md-headline-small-weight: 300;
+    --md-title-large-weight: 400;
+    --md-title-medium-weight: 400;
+    --md-title-small-weight: 400;
+    --md-body-large-weight: 300;
+    --md-body-medium-weight: 300;
+    --md-label-large-weight: 400;
+    --md-label-medium-weight: 400;
+    
+    /* Increased line height for dark mode */
+    --md-body-large-line: 1.8;
+    --md-body-medium-line: 1.75;
+  }
+  
+  /* Responsive Typography Scale */
+  @media (max-width: 640px) {
+    :root {
+      --md-display-large-size: 2.5rem;
+      --md-display-medium-size: 2rem;
+      --md-display-small-size: 1.75rem;
+      --md-headline-large-size: 1.5rem;
+      --md-headline-medium-size: 1.375rem;
+      --md-headline-small-size: 1.25rem;
+      --md-body-large-size: 1rem;
+    }
+  }
+}
+
+@layer components {
+  /* Typography Classes */
+  .md-display-large {
+    font-size: var(--md-display-large-size);
+    line-height: var(--md-display-large-line);
+    letter-spacing: var(--md-display-large-tracking);
+    font-weight: var(--md-display-large-weight);
+    font-family: var(--md-font-sans);
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+  
+  .md-display-medium {
+    font-size: var(--md-display-medium-size);
+    line-height: var(--md-display-medium-line);
+    letter-spacing: var(--md-display-medium-tracking);
+    font-weight: var(--md-display-medium-weight);
+    font-family: var(--md-font-sans);
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+  
+  .md-display-small {
+    font-size: var(--md-display-small-size);
+    line-height: var(--md-display-small-line);
+    letter-spacing: var(--md-display-small-tracking);
+    font-weight: var(--md-display-small-weight);
+    font-family: var(--md-font-sans);
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+  
+  .md-headline-large {
+    font-size: var(--md-headline-large-size);
+    line-height: var(--md-headline-large-line);
+    letter-spacing: var(--md-headline-large-tracking);
+    font-weight: var(--md-headline-large-weight);
+    font-family: var(--md-font-sans);
+  }
+  
+  .md-headline-medium {
+    font-size: var(--md-headline-medium-size);
+    line-height: var(--md-headline-medium-line);
+    letter-spacing: var(--md-headline-medium-tracking);
+    font-weight: var(--md-headline-medium-weight);
+    font-family: var(--md-font-sans);
+  }
+  
+  .md-headline-small {
+    font-size: var(--md-headline-small-size);
+    line-height: var(--md-headline-small-line);
+    letter-spacing: var(--md-headline-small-tracking);
+    font-weight: var(--md-headline-small-weight);
+    font-family: var(--md-font-sans);
+  }
+  
+  .md-title-large {
+    font-size: var(--md-title-large-size);
+    line-height: var(--md-title-large-line);
+    letter-spacing: var(--md-title-large-tracking);
+    font-weight: var(--md-title-large-weight);
+    font-family: var(--md-font-sans);
+  }
+  
+  .md-title-medium {
+    font-size: var(--md-title-medium-size);
+    line-height: var(--md-title-medium-line);
+    letter-spacing: var(--md-title-medium-tracking);
+    font-weight: var(--md-title-medium-weight);
+    font-family: var(--md-font-sans);
+  }
+  
+  .md-title-small {
+    font-size: var(--md-title-small-size);
+    line-height: var(--md-title-small-line);
+    letter-spacing: var(--md-title-small-tracking);
+    font-weight: var(--md-title-small-weight);
+    font-family: var(--md-font-sans);
+  }
+  
+  .md-body-large {
+    font-size: var(--md-body-large-size);
+    line-height: var(--md-body-large-line);
+    letter-spacing: var(--md-body-large-tracking);
+    font-weight: var(--md-body-large-weight);
+    font-family: var(--md-font-serif);
+  }
+  
+  .md-body-medium {
+    font-size: var(--md-body-medium-size);
+    line-height: var(--md-body-medium-line);
+    letter-spacing: var(--md-body-medium-tracking);
+    font-weight: var(--md-body-medium-weight);
+    font-family: var(--md-font-serif);
+  }
+  
+  .md-body-small {
+    font-size: var(--md-body-small-size);
+    line-height: var(--md-body-small-line);
+    letter-spacing: var(--md-body-small-tracking);
+    font-weight: var(--md-body-small-weight);
+    font-family: var(--md-font-serif);
+  }
+  
+  .md-label-large {
+    font-size: var(--md-label-large-size);
+    line-height: var(--md-label-large-line);
+    letter-spacing: var(--md-label-large-tracking);
+    font-weight: var(--md-label-large-weight);
+    font-family: var(--md-font-sans);
+    text-transform: uppercase;
+  }
+  
+  .md-label-medium {
+    font-size: var(--md-label-medium-size);
+    line-height: var(--md-label-medium-line);
+    letter-spacing: var(--md-label-medium-tracking);
+    font-weight: var(--md-label-medium-weight);
+    font-family: var(--md-font-sans);
+    text-transform: uppercase;
+  }
+  
+  .md-label-small {
+    font-size: var(--md-label-small-size);
+    line-height: var(--md-label-small-line);
+    letter-spacing: var(--md-label-small-tracking);
+    font-weight: var(--md-label-small-weight);
+    font-family: var(--md-font-sans);
+    text-transform: uppercase;
+  }
+  
+  /* Article Typography */
+  .article-typography {
+    /* First Letter Drop Cap */
+    > p:first-of-type::first-letter {
+      @apply float-left text-7xl leading-[0.85] font-light mr-3 mt-1;
+      font-family: var(--md-font-serif);
+      color: theme('colors.md-primary');
+    }
+    
+    /* Paragraphs */
+    p {
+      margin-bottom: var(--md-paragraph-spacing);
+      font-family: var(--md-font-serif);
+      font-size: var(--md-body-large-size);
+      line-height: var(--md-body-large-line);
+      letter-spacing: var(--md-body-large-tracking);
+      font-weight: var(--md-body-large-weight);
+      font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'onum' 1;
+    }
+    
+    /* Headings */
+    h1 {
+      @apply md-headline-large;
+      margin-top: var(--md-section-spacing);
+      margin-bottom: var(--md-baseline);
+    }
+    
+    h2 {
+      @apply md-headline-medium;
+      margin-top: calc(var(--md-section-spacing) * 0.8);
+      margin-bottom: calc(var(--md-baseline) * 1.5);
+    }
+    
+    h3 {
+      @apply md-headline-small;
+      margin-top: calc(var(--md-section-spacing) * 0.6);
+      margin-bottom: var(--md-baseline);
+    }
+    
+    h4 {
+      @apply md-title-large;
+      margin-top: calc(var(--md-section-spacing) * 0.5);
+      margin-bottom: var(--md-baseline);
+    }
+    
+    /* Links */
+    a {
+      @apply text-md-primary dark:text-md-primary-light;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        text-decoration-thickness: 2px;
+      }
+    }
+    
+    /* Blockquotes */
+    blockquote {
+      @apply border-l-4 border-md-primary/30 pl-6 my-8 italic;
+      font-family: var(--md-font-serif);
+      font-size: calc(var(--md-body-large-size) * 1.1);
+      line-height: 1.6;
+      
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    /* Lists */
+    ul, ol {
+      margin-bottom: var(--md-paragraph-spacing);
+      padding-left: 1.5em;
+      
+      li {
+        margin-bottom: calc(var(--md-baseline) * 0.5);
+        line-height: var(--md-body-large-line);
+      }
+    }
+    
+    ul {
+      list-style-type: disc;
+    }
+    
+    ol {
+      list-style-type: decimal;
+    }
+    
+    /* Code */
+    code {
+      @apply bg-md-surface-variant dark:bg-md-dark-surface-variant;
+      @apply text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
+      padding: 0.125em 0.375em;
+      border-radius: 0.25em;
+      font-family: var(--md-font-mono);
+      font-size: 0.875em;
+      font-weight: 400;
+    }
+    
+    pre {
+      @apply bg-md-surface-variant dark:bg-md-dark-surface-variant;
+      @apply rounded-lg overflow-x-auto;
+      padding: 1.5rem;
+      margin: var(--md-paragraph-spacing) 0;
+      
+      code {
+        background: transparent;
+        padding: 0;
+        font-size: 0.875rem;
+        line-height: 1.7;
+      }
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      margin: var(--md-paragraph-spacing) 0;
+      border-collapse: collapse;
+      
+      th, td {
+        @apply border-b border-md-outline-variant dark:border-md-dark-outline-variant;
+        padding: 0.75rem;
+        text-align: left;
+      }
+      
+      th {
+        @apply font-medium;
+        font-family: var(--md-font-sans);
+      }
+    }
+    
+    /* Horizontal Rule */
+    hr {
+      @apply border-t border-md-outline-variant dark:border-md-dark-outline-variant;
+      margin: var(--md-section-spacing) 0;
+    }
+  }
+  
+  /* Reading Width Containers */
+  .reading-width {
+    max-width: var(--md-reading-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .reading-width-wide {
+    max-width: var(--md-reading-width-wide);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Vertical Rhythm Utilities */
+  .rhythm-tight {
+    > * + * {
+      margin-top: var(--md-baseline);
+    }
+  }
+  
+  .rhythm-normal {
+    > * + * {
+      margin-top: calc(var(--md-baseline) * 2);
+    }
+  }
+  
+  .rhythm-loose {
+    > * + * {
+      margin-top: calc(var(--md-baseline) * 3);
+    }
+  }
+}
+
+/* Font Loading Optimization */
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/Inter-roman.var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/SourceSerif4-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 100 800;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/JetBrainsMono-Variable.woff2') format('woff2');
+}

@@ -1,0 +1,371 @@
+{
+  "timestamp": "2025-06-16T05:10:52.756Z",
+  "componentArchitecture": {
+    "components": {
+      "src/routes/+error.svelte": {
+        "path": "src/routes/+error.svelte",
+        "type": "route",
+        "size": 975,
+        "props": [],
+        "stores": [
+          "app",
+          "page"
+        ],
+        "exports": [],
+        "imports": [
+          {
+            "source": "$app/stores",
+            "specifiers": [
+              "page"
+            ]
+          }
+        ],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 1,
+        "compositionScore": 0
+      },
+      "src/routes/+layout.svelte": {
+        "path": "src/routes/+layout.svelte",
+        "type": "route",
+        "size": 12540,
+        "props": [],
+        "stores": [
+          "app",
+          "page"
+        ],
+        "exports": [],
+        "imports": [],
+        "slots": [
+          "default"
+        ],
+        "eventHandlers": [
+          "click",
+          "click",
+          "input",
+          "click",
+          "click"
+        ],
+        "complexity": 17,
+        "compositionScore": 0
+      },
+      "src/routes/+page.svelte": {
+        "path": "src/routes/+page.svelte",
+        "type": "route",
+        "size": 7617,
+        "props": [],
+        "stores": [
+          "lib"
+        ],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 15,
+        "compositionScore": 0
+      },
+      "src/routes/about/+page.svelte": {
+        "path": "src/routes/about/+page.svelte",
+        "type": "route",
+        "size": 3880,
+        "props": [],
+        "stores": [
+          "app"
+        ],
+        "exports": [],
+        "imports": [
+          {
+            "source": "$app/stores",
+            "specifiers": [
+              "page"
+            ]
+          }
+        ],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 1,
+        "compositionScore": 0
+      },
+      "src/routes/article/[id]/+page.svelte": {
+        "path": "src/routes/article/[id]/+page.svelte",
+        "type": "route",
+        "size": 6233,
+        "props": [
+          "data"
+        ],
+        "stores": [
+          "types"
+        ],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [
+          "click",
+          "click"
+        ],
+        "complexity": 8,
+        "compositionScore": 0
+      },
+      "src/routes/contact/+page.svelte": {
+        "path": "src/routes/contact/+page.svelte",
+        "type": "route",
+        "size": 5135,
+        "props": [],
+        "stores": [],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [
+          "submit"
+        ],
+        "complexity": 4,
+        "compositionScore": 0
+      },
+      "src/routes/editor/+page.svelte": {
+        "path": "src/routes/editor/+page.svelte",
+        "type": "route",
+        "size": 9722,
+        "props": [],
+        "stores": [],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [
+          "click",
+          "click",
+          "click"
+        ],
+        "complexity": 6,
+        "compositionScore": 0
+      },
+      "src/routes/help/+page.svelte": {
+        "path": "src/routes/help/+page.svelte",
+        "type": "route",
+        "size": 5317,
+        "props": [],
+        "stores": [
+          "app"
+        ],
+        "exports": [],
+        "imports": [
+          {
+            "source": "$app/stores",
+            "specifiers": [
+              "page"
+            ]
+          }
+        ],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 1,
+        "compositionScore": 0
+      },
+      "src/routes/privacy/+page.svelte": {
+        "path": "src/routes/privacy/+page.svelte",
+        "type": "route",
+        "size": 2833,
+        "props": [],
+        "stores": [],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 1,
+        "compositionScore": 0
+      },
+      "src/routes/terms/+page.svelte": {
+        "path": "src/routes/terms/+page.svelte",
+        "type": "route",
+        "size": 3296,
+        "props": [],
+        "stores": [],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 1,
+        "compositionScore": 0
+      },
+      "src/routes/topic/[slug]/+page.svelte": {
+        "path": "src/routes/topic/[slug]/+page.svelte",
+        "type": "route",
+        "size": 10242,
+        "props": [],
+        "stores": [
+          "app",
+          "lib",
+          "page"
+        ],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 7,
+        "compositionScore": 0
+      },
+      "src/routes/topics/+page.svelte": {
+        "path": "src/routes/topics/+page.svelte",
+        "type": "route",
+        "size": 4627,
+        "props": [],
+        "stores": [],
+        "exports": [],
+        "imports": [],
+        "slots": [],
+        "eventHandlers": [],
+        "complexity": 7,
+        "compositionScore": 0
+      }
+    },
+    "compositionPatterns": [
+      {
+        "type": "slot_composition",
+        "component": "src/routes/+layout.svelte",
+        "slots": [
+          "default"
+        ]
+      }
+    ],
+    "propDrilling": [],
+    "circularDependencies": [],
+    "reusabilityScore": 0
+  },
+  "storeManagement": {
+    "stores": [],
+    "mutationPatterns": [],
+    "separationOfConcerns": "good",
+    "issues": []
+  },
+  "routingArchitecture": {
+    "routes": [
+      {
+        "path": "+error.svelte",
+        "depth": 0,
+        "size": 975,
+        "complexity": 1,
+        "isLayout": false
+      },
+      {
+        "path": "+layout.svelte",
+        "depth": 0,
+        "size": 12540,
+        "complexity": 17,
+        "isLayout": true
+      },
+      {
+        "path": "+page.svelte",
+        "depth": 0,
+        "size": 7617,
+        "complexity": 15,
+        "isLayout": false
+      },
+      {
+        "path": "about/+page.svelte",
+        "depth": 1,
+        "size": 3880,
+        "complexity": 1,
+        "isLayout": false
+      },
+      {
+        "path": "article/[id]/+page.svelte",
+        "depth": 2,
+        "size": 6233,
+        "complexity": 8,
+        "isLayout": false
+      },
+      {
+        "path": "contact/+page.svelte",
+        "depth": 1,
+        "size": 5135,
+        "complexity": 4,
+        "isLayout": false
+      },
+      {
+        "path": "editor/+page.svelte",
+        "depth": 1,
+        "size": 9722,
+        "complexity": 6,
+        "isLayout": false
+      },
+      {
+        "path": "help/+page.svelte",
+        "depth": 1,
+        "size": 5317,
+        "complexity": 1,
+        "isLayout": false
+      },
+      {
+        "path": "privacy/+page.svelte",
+        "depth": 1,
+        "size": 2833,
+        "complexity": 1,
+        "isLayout": false
+      },
+      {
+        "path": "terms/+page.svelte",
+        "depth": 1,
+        "size": 3296,
+        "complexity": 1,
+        "isLayout": false
+      },
+      {
+        "path": "topic/[slug]/+page.svelte",
+        "depth": 2,
+        "size": 10242,
+        "complexity": 7,
+        "isLayout": false
+      },
+      {
+        "path": "topics/+page.svelte",
+        "depth": 1,
+        "size": 4627,
+        "complexity": 7,
+        "isLayout": false
+      }
+    ],
+    "layouts": [],
+    "complexity": 25.75,
+    "scalabilityIssues": [
+      {
+        "type": "large_route_files",
+        "count": 11,
+        "files": [
+          "+layout.svelte",
+          "+page.svelte",
+          "about/+page.svelte",
+          "article/[id]/+page.svelte",
+          "contact/+page.svelte",
+          "editor/+page.svelte",
+          "help/+page.svelte",
+          "privacy/+page.svelte",
+          "terms/+page.svelte",
+          "topic/[slug]/+page.svelte",
+          "topics/+page.svelte"
+        ]
+      }
+    ]
+  },
+  "codeQuality": {
+    "cyclomaticComplexity": {},
+    "cognitiveLoad": {},
+    "namingConsistency": "good",
+    "technicalDebt": []
+  },
+  "typeSafety": {
+    "strictModeCompliance": true,
+    "typecoverage": 0,
+    "anyUsage": [],
+    "errorHandling": [],
+    "typeCoverage": 85
+  },
+  "security": {
+    "vulnerabilities": [],
+    "sanitationIssues": [],
+    "sensitiveDataExposure": []
+  },
+  "maintainability": {
+    "score": 100,
+    "futureProofing": [],
+    "refactoringNeeds": []
+  }
+}

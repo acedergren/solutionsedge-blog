@@ -1,0 +1,597 @@
+{
+  "timestamp": "2025-06-16T05:10:53.534Z",
+  "strictMode": {
+    "enabled": true,
+    "violations": []
+  },
+  "typeCoverage": {
+    "percentage": 50,
+    "untypedFiles": [
+      "src/routes/+error.svelte",
+      "src/routes/privacy/+page.svelte",
+      "src/routes/terms/+page.svelte"
+    ],
+    "anyUsage": [
+      {
+        "file": "src/lib/content.ts",
+        "line": 9,
+        "context": "\nexport function parseMarkdown(content: string): { metadata: any; content: string } {\n  const metadataRegex = /^---\\s*\\n([\\s\\S]*?)\\n---\\s*\\n([\\s\\S]*)$/;"
+      },
+      {
+        "file": "src/lib/content.ts",
+        "line": 18,
+        "context": "  const [, metadataStr, markdownContent] = match;\n  const metadata: any = {};\n  "
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 50,
+        "context": "    \n    delta.ops.forEach((op: any) => {\n      if (typeof op.insert === 'string') {"
+      }
+    ],
+    "implicitAny": [
+      {
+        "file": "src/lib/content.ts",
+        "line": 4,
+        "pattern": "const articleModules ="
+      },
+      {
+        "file": "src/lib/content.ts",
+        "line": 10,
+        "pattern": "const metadataRegex ="
+      },
+      {
+        "file": "src/lib/content.ts",
+        "line": 11,
+        "pattern": "const match ="
+      },
+      {
+        "file": "src/lib/content.ts",
+        "line": 24,
+        "pattern": "const value ="
+      },
+      {
+        "file": "src/lib/content.ts",
+        "line": 63,
+        "pattern": "const filename ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 45,
+        "pattern": "function updateTheme() {"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 59,
+        "pattern": "function toggleTheme() {"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 70,
+        "pattern": "function handleSearch() {"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 92,
+        "pattern": "function closeSearch() {"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 18,
+        "pattern": "const savedTheme ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 27,
+        "pattern": "const handleScroll ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 33,
+        "pattern": "const mediaQuery ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 34,
+        "pattern": "const handleSystemThemeChange ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 50,
+        "pattern": "const root ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 74,
+        "pattern": "const allContent ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 5,
+        "pattern": "let isDarkMode ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 7,
+        "pattern": "let isScrolled ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 8,
+        "pattern": "let showSearch ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 9,
+        "pattern": "let mounted ="
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 68,
+        "pattern": "let searchQuery ="
+      },
+      {
+        "file": "src/routes/+layout.ts",
+        "line": 2,
+        "pattern": "const prerender ="
+      },
+      {
+        "file": "src/routes/+layout.ts",
+        "line": 5,
+        "pattern": "const ssr ="
+      },
+      {
+        "file": "src/routes/+layout.ts",
+        "line": 8,
+        "pattern": "const trailingSlash ="
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "line": 5,
+        "pattern": "const allArticles ="
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "line": 8,
+        "pattern": "const featuredArticle ="
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "line": 11,
+        "pattern": "const articles ="
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "line": 14,
+        "pattern": "const trendingArticles ="
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "line": 22,
+        "pattern": "const allTags ="
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "line": 23,
+        "pattern": "const topics ="
+      },
+      {
+        "file": "src/routes/article/[id]/+page.svelte",
+        "line": 7,
+        "pattern": "const articleHtml ="
+      },
+      {
+        "file": "src/routes/article/[id]/+page.svelte",
+        "line": 8,
+        "pattern": "const article ="
+      },
+      {
+        "file": "src/routes/article/[id]/+page.svelte",
+        "line": 18,
+        "pattern": "let isFollowing ="
+      },
+      {
+        "file": "src/routes/article/[id]/+page.svelte",
+        "line": 21,
+        "pattern": "let hasClapped ="
+      },
+      {
+        "file": "src/routes/article/[id]/+page.svelte",
+        "line": 22,
+        "pattern": "let clapCount ="
+      },
+      {
+        "file": "src/routes/article/[id]/+page.ts",
+        "line": 18,
+        "pattern": "function entries() {"
+      },
+      {
+        "file": "src/routes/article/[id]/+page.ts",
+        "line": 6,
+        "pattern": "const article ="
+      },
+      {
+        "file": "src/routes/article/[id]/+page.ts",
+        "line": 20,
+        "pattern": "const articles ="
+      },
+      {
+        "file": "src/routes/contact/+page.svelte",
+        "line": 1,
+        "pattern": "let name ="
+      },
+      {
+        "file": "src/routes/contact/+page.svelte",
+        "line": 1,
+        "pattern": "let email ="
+      },
+      {
+        "file": "src/routes/contact/+page.svelte",
+        "line": 3,
+        "pattern": "let subject ="
+      },
+      {
+        "file": "src/routes/contact/+page.svelte",
+        "line": 4,
+        "pattern": "let message ="
+      },
+      {
+        "file": "src/routes/contact/+page.svelte",
+        "line": 5,
+        "pattern": "let submitted ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 41,
+        "pattern": "function updateMarkdown() {"
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 81,
+        "pattern": "function togglePreview() {"
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 100,
+        "pattern": "function downloadMarkdown() {"
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 131,
+        "pattern": "function saveToArticles() {"
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 45,
+        "pattern": "const delta ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 60,
+        "pattern": "const level ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 103,
+        "pattern": "const date ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 104,
+        "pattern": "const filename ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 105,
+        "pattern": "const tagArray ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 106,
+        "pattern": "const frontmatter ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 116,
+        "pattern": "const fullContent ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 121,
+        "pattern": "const blob ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 123,
+        "pattern": "const url ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 124,
+        "pattern": "const a ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 134,
+        "pattern": "const date ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 135,
+        "pattern": "const filename ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 136,
+        "pattern": "const tagArray ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 137,
+        "pattern": "const frontmatter ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 147,
+        "pattern": "const fullContent ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 7,
+        "pattern": "let title ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 8,
+        "pattern": "let author ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 9,
+        "pattern": "let tags ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 10,
+        "pattern": "let description ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 11,
+        "pattern": "let excerpt ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 12,
+        "pattern": "let featured ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 13,
+        "pattern": "let previewMode ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 14,
+        "pattern": "let htmlPreview ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 15,
+        "pattern": "let markdownContent ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 47,
+        "pattern": "let markdown ="
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 51,
+        "pattern": "let text ="
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.ts",
+        "line": 11,
+        "pattern": "function entries() {"
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.ts",
+        "line": 13,
+        "pattern": "const articles ="
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.ts",
+        "line": 14,
+        "pattern": "const uniqueTags ="
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.ts",
+        "line": 19,
+        "pattern": "const slug ="
+      },
+      {
+        "file": "src/routes/topics/+page.svelte",
+        "line": 93,
+        "pattern": "const featuredTopics ="
+      },
+      {
+        "file": "src/routes/topics/+page.svelte",
+        "line": 97,
+        "pattern": "const allTopics ="
+      }
+    ]
+  },
+  "errorHandling": {
+    "asyncOperations": {
+      "total": 1,
+      "withErrorHandling": 0,
+      "missingErrorHandling": [
+        {
+          "file": "src/routes/editor/+page.svelte",
+          "line": 18,
+          "operation": "async ("
+        }
+      ]
+    },
+    "trycatches": {
+      "total": 0,
+      "generic": [],
+      "specific": []
+    },
+    "errorBoundaries": {
+      "present": false,
+      "locations": []
+    },
+    "gracefulDegradation": []
+  },
+  "edgeCases": {
+    "networkFailures": [],
+    "malformedData": [],
+    "userInput": [
+      {
+        "file": "src/app.d.ts",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/about/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/article/[id]/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/contact/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/help/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/privacy/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/terms/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.svelte",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.ts",
+        "issue": "Potential user input without validation"
+      },
+      {
+        "file": "src/routes/topics/+page.svelte",
+        "issue": "Potential user input without validation"
+      }
+    ],
+    "nullChecks": [
+      {
+        "file": "src/app.d.ts",
+        "count": 0
+      },
+      {
+        "file": "src/lib/content.ts",
+        "count": 1
+      },
+      {
+        "file": "src/lib/types.ts",
+        "count": 0
+      },
+      {
+        "file": "src/routes/+error.svelte",
+        "count": 0
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "count": 4
+      },
+      {
+        "file": "src/routes/+layout.ts",
+        "count": 0
+      },
+      {
+        "file": "src/routes/+page.svelte",
+        "count": 1
+      },
+      {
+        "file": "src/routes/about/+page.svelte",
+        "count": 0
+      },
+      {
+        "file": "src/routes/article/[id]/+page.svelte",
+        "count": 1
+      },
+      {
+        "file": "src/routes/article/[id]/+page.ts",
+        "count": 0
+      },
+      {
+        "file": "src/routes/contact/+page.svelte",
+        "count": 0
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "count": 2
+      },
+      {
+        "file": "src/routes/help/+page.svelte",
+        "count": 0
+      },
+      {
+        "file": "src/routes/privacy/+page.svelte",
+        "count": 0
+      },
+      {
+        "file": "src/routes/terms/+page.svelte",
+        "count": 0
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.svelte",
+        "count": 0
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.ts",
+        "count": 0
+      },
+      {
+        "file": "src/routes/topics/+page.svelte",
+        "count": 0
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "category": "Type Coverage",
+      "priority": "high",
+      "issue": "Type coverage is only 50.0%",
+      "recommendation": "Add type annotations to improve type safety"
+    },
+    {
+      "category": "Type Safety",
+      "priority": "medium",
+      "issue": "3 usages of 'any' type",
+      "recommendation": "Replace any types with specific type definitions"
+    },
+    {
+      "category": "Error Handling",
+      "priority": "high",
+      "issue": "Only 0.0% of async operations have error handling",
+      "recommendation": "Add proper error handling to all async operations"
+    },
+    {
+      "category": "Error Boundaries",
+      "priority": "medium",
+      "issue": "No error boundaries detected",
+      "recommendation": "Implement error boundaries for graceful error handling"
+    }
+  ]
+}

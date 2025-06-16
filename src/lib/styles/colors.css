@@ -1,0 +1,344 @@
+/* Material Design 3 Color System - Dark Mode First */
+
+@layer base {
+  :root {
+    /* Light Theme Colors - Warm, Content-Focused */
+    --md-primary: 220 13% 20%;              /* Dark Blue Grey */
+    --md-primary-container: 220 13% 30%;    
+    --md-on-primary: 0 0% 100%;
+    --md-on-primary-container: 220 13% 90%;
+    
+    --md-secondary: 30 10% 30%;             /* Warm Grey */
+    --md-secondary-container: 30 10% 40%;
+    --md-on-secondary: 0 0% 100%;
+    --md-on-secondary-container: 30 10% 90%;
+    
+    --md-tertiary: 340 10% 35%;             /* Muted Rose */
+    --md-tertiary-container: 340 10% 45%;
+    --md-on-tertiary: 0 0% 100%;
+    --md-on-tertiary-container: 340 10% 90%;
+    
+    --md-error: 0 65% 51%;
+    --md-error-container: 0 65% 61%;
+    --md-on-error: 0 0% 100%;
+    --md-on-error-container: 0 65% 10%;
+    
+    --md-surface: 30 5% 98%;                /* Warm White */
+    --md-surface-variant: 30 5% 94%;
+    --md-surface-container: 30 5% 96%;
+    --md-surface-container-high: 30 5% 92%;
+    --md-surface-container-highest: 30 5% 90%;
+    
+    --md-on-surface: 220 13% 13%;
+    --md-on-surface-variant: 220 8% 35%;
+    
+    --md-outline: 220 5% 73%;
+    --md-outline-variant: 220 5% 83%;
+    
+    --md-inverse-surface: 220 13% 20%;
+    --md-inverse-on-surface: 30 5% 98%;
+    --md-inverse-primary: 220 40% 80%;
+    
+    /* Light Mode Specific */
+    --md-scrim: 0 0% 0%;
+    --md-shadow: 0 0% 0%;
+  }
+  
+  /* Dark Theme Colors - Optimized for Reading Comfort */
+  .dark {
+    /* Dark surfaces with warm undertones to reduce eye strain */
+    --md-primary: 220 40% 75%;              /* Soft Blue Grey */
+    --md-primary-container: 220 35% 25%;
+    --md-on-primary: 220 40% 10%;
+    --md-on-primary-container: 220 40% 85%;
+    
+    --md-secondary: 30 20% 70%;             /* Warm Beige */
+    --md-secondary-container: 30 15% 25%;
+    --md-on-secondary: 30 20% 10%;
+    --md-on-secondary-container: 30 20% 85%;
+    
+    --md-tertiary: 340 20% 70%;             /* Soft Rose */
+    --md-tertiary-container: 340 15% 30%;
+    --md-on-tertiary: 340 20% 10%;
+    --md-on-tertiary-container: 340 20% 85%;
+    
+    --md-error: 0 70% 65%;
+    --md-error-container: 0 70% 25%;
+    --md-on-error: 0 0% 100%;
+    --md-on-error-container: 0 70% 90%;
+    
+    /* Warm dark backgrounds for reduced eye strain */
+    --md-surface: 30 3% 6%;                 /* Very Dark Warm Grey */
+    --md-surface-variant: 30 4% 11%;
+    --md-surface-container: 30 3% 9%;
+    --md-surface-container-high: 30 4% 13%;
+    --md-surface-container-highest: 30 4% 16%;
+    
+    --md-on-surface: 30 5% 93%;             /* Warm White */
+    --md-on-surface-variant: 30 5% 73%;
+    
+    --md-outline: 30 5% 35%;
+    --md-outline-variant: 30 5% 25%;
+    
+    --md-inverse-surface: 30 5% 93%;
+    --md-inverse-on-surface: 30 3% 6%;
+    --md-inverse-primary: 220 40% 30%;
+    
+    /* Dark Mode Specific */
+    --md-scrim: 0 0% 0%;
+    --md-shadow: 0 0% 0%;
+    
+    /* Special Dark Mode Colors */
+    --md-surface-bright: 30 4% 18%;         /* Slightly brighter surface */
+    --md-primary-light: 220 50% 85%;        /* Lighter primary for links */
+  }
+  
+  /* Color Aliases for Easier Use */
+  :root {
+    /* RGB values for opacity support */
+    --md-primary-rgb: 46 52 64;
+    --md-surface-rgb: 250 248 246;
+    --md-on-surface-rgb: 33 37 45;
+  }
+  
+  .dark {
+    --md-primary-rgb: 147 165 191;
+    --md-surface-rgb: 15 15 14;
+    --md-on-surface-rgb: 237 235 232;
+  }
+}
+
+@layer utilities {
+  /* Background Colors */
+  .bg-surface {
+    background-color: hsl(var(--md-surface));
+  }
+  
+  .bg-surface-variant {
+    background-color: hsl(var(--md-surface-variant));
+  }
+  
+  .bg-surface-container {
+    background-color: hsl(var(--md-surface-container));
+  }
+  
+  .bg-surface-container-high {
+    background-color: hsl(var(--md-surface-container-high));
+  }
+  
+  .bg-surface-container-highest {
+    background-color: hsl(var(--md-surface-container-highest));
+  }
+  
+  /* Text Colors */
+  .text-on-surface {
+    color: hsl(var(--md-on-surface));
+  }
+  
+  .text-on-surface-variant {
+    color: hsl(var(--md-on-surface-variant));
+  }
+  
+  .text-primary {
+    color: hsl(var(--md-primary));
+  }
+  
+  /* Border Colors */
+  .border-outline {
+    border-color: hsl(var(--md-outline));
+  }
+  
+  .border-outline-variant {
+    border-color: hsl(var(--md-outline-variant));
+  }
+  
+  /* Interactive State Colors */
+  .hover-state {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgb(var(--md-on-surface-rgb) / 0.08);
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+  
+  .focus-state {
+    position: relative;
+    
+    &:focus-visible {
+      outline: 2px solid hsl(var(--md-primary));
+      outline-offset: 2px;
+    }
+  }
+  
+  .pressed-state {
+    &:active {
+      transform: scale(0.98);
+      transition: transform 100ms ease;
+    }
+  }
+  
+  /* Elevation and Shadows */
+  .elevation-0 {
+    box-shadow: none;
+  }
+  
+  .elevation-1 {
+    box-shadow: 
+      0 1px 2px 0 rgb(var(--md-shadow-rgb) / 0.05),
+      0 1px 3px 0 rgb(var(--md-shadow-rgb) / 0.1);
+  }
+  
+  .elevation-2 {
+    box-shadow: 
+      0 2px 4px -1px rgb(var(--md-shadow-rgb) / 0.06),
+      0 4px 6px -1px rgb(var(--md-shadow-rgb) / 0.1);
+  }
+  
+  .elevation-3 {
+    box-shadow: 
+      0 4px 6px -2px rgb(var(--md-shadow-rgb) / 0.05),
+      0 10px 15px -3px rgb(var(--md-shadow-rgb) / 0.1);
+  }
+  
+  .elevation-4 {
+    box-shadow: 
+      0 10px 15px -3px rgb(var(--md-shadow-rgb) / 0.1),
+      0 20px 25px -5px rgb(var(--md-shadow-rgb) / 0.1);
+  }
+  
+  .elevation-5 {
+    box-shadow: 
+      0 20px 25px -5px rgb(var(--md-shadow-rgb) / 0.1),
+      0 25px 50px -12px rgb(var(--md-shadow-rgb) / 0.25);
+  }
+  
+  /* Dark mode elevation adjustments */
+  .dark {
+    .elevation-1 {
+      background-color: hsl(var(--md-surface-container));
+    }
+    
+    .elevation-2 {
+      background-color: hsl(var(--md-surface-container-high));
+    }
+    
+    .elevation-3 {
+      background-color: hsl(var(--md-surface-container-highest));
+    }
+    
+    .elevation-4, .elevation-5 {
+      background-color: hsl(var(--md-surface-bright));
+    }
+  }
+  
+  /* Semantic Color Classes */
+  .success {
+    color: hsl(120 40% 45%);
+    
+    .dark & {
+      color: hsl(120 40% 65%);
+    }
+  }
+  
+  .warning {
+    color: hsl(45 90% 45%);
+    
+    .dark & {
+      color: hsl(45 90% 65%);
+    }
+  }
+  
+  .info {
+    color: hsl(200 80% 45%);
+    
+    .dark & {
+      color: hsl(200 80% 65%);
+    }
+  }
+  
+  /* Gradient Utilities */
+  .gradient-surface {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--md-surface)),
+      hsl(var(--md-surface-variant))
+    );
+  }
+  
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--md-primary)),
+      hsl(var(--md-primary-container))
+    );
+  }
+  
+  /* Color Mix Utilities for Smooth Transitions */
+  .surface-mix-5 {
+    background-color: color-mix(
+      in srgb,
+      hsl(var(--md-surface)) 95%,
+      hsl(var(--md-primary)) 5%
+    );
+  }
+  
+  .surface-mix-10 {
+    background-color: color-mix(
+      in srgb,
+      hsl(var(--md-surface)) 90%,
+      hsl(var(--md-primary)) 10%
+    );
+  }
+}
+
+/* Theme Transition */
+@layer components {
+  .theme-transition {
+    transition: 
+      background-color 300ms ease,
+      border-color 300ms ease,
+      color 300ms ease,
+      fill 300ms ease,
+      stroke 300ms ease;
+  }
+  
+  /* Smooth theme switching */
+  html.theme-switching,
+  html.theme-switching *,
+  html.theme-switching *::before,
+  html.theme-switching *::after {
+    transition: none !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --md-outline: 220 5% 50%;
+    --md-on-surface-variant: 220 8% 25%;
+  }
+  
+  .dark {
+    --md-outline: 30 5% 55%;
+    --md-on-surface-variant: 30 5% 85%;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

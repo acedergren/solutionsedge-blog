@@ -1,0 +1,188 @@
+{
+  "generated": "2025-06-16T04:46:32.599Z",
+  "buildMetrics": {
+    "timestamp": "2025-06-16T04:42:29.741Z",
+    "totalBuildTime": 21282.473916000003,
+    "phases": {
+      "clean": {
+        "duration": 118.979792,
+        "memoryDelta": {
+          "heapUsed": -263328,
+          "heapTotal": 1048576,
+          "external": 40,
+          "rss": 1097728
+        }
+      },
+      "dependencies": {
+        "duration": 4106.306500000001,
+        "memoryDelta": {
+          "heapUsed": 130944,
+          "heapTotal": 0,
+          "external": -10297,
+          "rss": -8060928
+        }
+      },
+      "typecheck": {
+        "duration": 5955.611625,
+        "memoryDelta": {
+          "heapUsed": 151288,
+          "heapTotal": 786432,
+          "external": 1357,
+          "rss": -753664
+        }
+      },
+      "build": {
+        "duration": 6043.025874999999,
+        "memoryDelta": {
+          "heapUsed": 187608,
+          "heapTotal": 0,
+          "external": 7284,
+          "rss": 720896
+        }
+      },
+      "analysis": {
+        "duration": 5057.396415999998,
+        "memoryDelta": {
+          "heapUsed": 1221984,
+          "heapTotal": -1048576,
+          "external": 24043,
+          "rss": 344064
+        }
+      }
+    },
+    "memoryUsage": {},
+    "bundleStats": {
+      "totalFiles": 144,
+      "totalSize": 63126628,
+      "filesByType": {
+        ".js": {
+          "count": 26,
+          "size": 777613
+        },
+        ".css": {
+          "count": 9,
+          "size": 86145
+        },
+        ".json": {
+          "count": 1,
+          "size": 27
+        },
+        ".html": {
+          "count": 100,
+          "size": 2100424
+        },
+        ".svg": {
+          "count": 1,
+          "size": 319
+        },
+        ".png": {
+          "count": 2,
+          "size": 1659939
+        },
+        ".md": {
+          "count": 1,
+          "size": 1445
+        },
+        ".jpg": {
+          "count": 1,
+          "size": 14909
+        },
+        ".mov": {
+          "count": 1,
+          "size": 50530065
+        },
+        ".mp4": {
+          "count": 1,
+          "size": 3691579
+        },
+        ".webm": {
+          "count": 1,
+          "size": 4264163
+        }
+      },
+      "largestFiles": [
+        {
+          "path": "/build/videos/alecs-demo.mov",
+          "size": 50530065
+        },
+        {
+          "path": "/build/videos/alecs-demo.webm",
+          "size": 4264163
+        },
+        {
+          "path": "/build/videos/alecs-demo.mp4",
+          "size": 3691579
+        },
+        {
+          "path": "/build/images/alecs-screenshots/repo-oveview.png",
+          "size": 936900
+        },
+        {
+          "path": "/build/images/alecs-screenshots/mcp-integration.png",
+          "size": 723039
+        },
+        {
+          "path": "/build/_app/immutable/chunks/Cax80eBg.js",
+          "size": 383735
+        },
+        {
+          "path": "/build/_app/immutable/chunks/NUkVzHUe.js",
+          "size": 203374
+        },
+        {
+          "path": "/build/article/http3-tls13-web-performance-implications.html",
+          "size": 66524
+        },
+        {
+          "path": "/build/article/akamai-edge-data-evolution-harperdb.html",
+          "size": 64571
+        },
+        {
+          "path": "/build/article/k8s-zero-to-hero-part3-akamai-security-edgedns.html",
+          "size": 48299
+        }
+      ]
+    },
+    "errors": [],
+    "treeShaking": {
+      "totalImports": 0,
+      "unusedExports": [],
+      "circularDependencies": []
+    }
+  },
+  "prerenderMetrics": null,
+  "bundleAnalysis": null,
+  "recommendations": [
+    {
+      "category": "Bundle Size",
+      "severity": "high",
+      "issue": "Total bundle size is 60.20MB",
+      "recommendation": "Implement code splitting, lazy loading, and review dependencies for unnecessary imports"
+    },
+    {
+      "category": "Large Files",
+      "severity": "medium",
+      "issue": "5 files exceed 500KB",
+      "recommendation": "Consider splitting large files or implementing dynamic imports",
+      "details": [
+        "/build/videos/alecs-demo.mov: 49345.77KB",
+        "/build/videos/alecs-demo.webm: 4164.22KB",
+        "/build/videos/alecs-demo.mp4: 3605.06KB",
+        "/build/images/alecs-screenshots/repo-oveview.png: 914.94KB",
+        "/build/images/alecs-screenshots/mcp-integration.png: 706.09KB"
+      ]
+    },
+    {
+      "category": "Missing Optimization",
+      "severity": "medium",
+      "issue": "No compression enabled for static assets",
+      "recommendation": "Enable precompression in svelte.config.js with adapter-static"
+    }
+  ],
+  "score": {
+    "build": 100,
+    "bundle": 0,
+    "prerender": 0,
+    "overall": 100
+  }
+}

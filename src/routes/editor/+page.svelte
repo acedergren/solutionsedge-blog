@@ -78,7 +78,7 @@
     
     markdownContent = markdown;
     if (previewMode) {
-      htmlPreview = marked(markdown);
+      htmlPreview = marked.parse(markdown) as string;
     }
   }
   

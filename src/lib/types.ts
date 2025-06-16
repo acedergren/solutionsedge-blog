@@ -14,6 +14,7 @@ export interface Article {
 	readingTime: number;
 	tags: string[];
 	imageUrl?: string;
+	featured?: boolean;
 }
 
 export interface TrendingArticle {

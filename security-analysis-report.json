@@ -1,0 +1,135 @@
+{
+  "timestamp": "2025-06-16T05:10:53.790Z",
+  "xssVulnerabilities": [
+    {
+      "file": "src/routes/article/[id]/+page.svelte",
+      "line": 95,
+      "type": "svelte_html_without_sanitization",
+      "context": "{@html article.content}",
+      "severity": "high"
+    },
+    {
+      "file": "src/routes/editor/+page.svelte",
+      "line": 276,
+      "type": "svelte_html_without_sanitization",
+      "context": "{@html htmlPreview}",
+      "severity": "high"
+    }
+  ],
+  "dataExposure": {
+    "sensitiveVariables": [],
+    "apiKeys": [],
+    "environmentVars": []
+  },
+  "inputSanitization": {
+    "unsafeInputs": [
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 198,
+        "type": "unvalidated_text_input",
+        "severity": "medium"
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 209,
+        "type": "unvalidated_text_input",
+        "severity": "medium"
+      },
+      {
+        "file": "src/routes/editor/+page.svelte",
+        "line": 220,
+        "type": "unvalidated_text_input",
+        "severity": "medium"
+      }
+    ],
+    "missingSanitization": [
+      {
+        "file": "src/lib/content.ts",
+        "line": 22,
+        "type": "unsanitized_user_input",
+        "context": ".valueParts] = line.split(':')",
+        "severity": "high"
+      },
+      {
+        "file": "src/routes/article/[id]/+page.ts",
+        "line": 6,
+        "type": "unsanitized_user_input",
+        "context": "params.id)",
+        "severity": "high"
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.svelte",
+        "line": 73,
+        "type": "unsanitized_user_input",
+        "context": "params.slug",
+        "severity": "high"
+      },
+      {
+        "file": "src/routes/topic/[slug]/+page.ts",
+        "line": 6,
+        "type": "unsanitized_user_input",
+        "context": "params.slug\n\t}",
+        "severity": "high"
+      }
+    ]
+  },
+  "dependencies": {
+    "vulnerabilities": [],
+    "outdated": [],
+    "analyzed": false
+  },
+  "authentication": {
+    "patterns": [],
+    "issues": []
+  },
+  "dataHandling": {
+    "unsafeOperations": [],
+    "loggingIssues": []
+  },
+  "clientSideSecurity": {
+    "localstorage": [
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 19,
+        "operation": "getItem"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 36,
+        "operation": "getItem"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 55,
+        "operation": "setItem"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 59,
+        "operation": "setItem"
+      },
+      {
+        "file": "src/routes/+layout.svelte",
+        "line": 108,
+        "operation": "getItem"
+      }
+    ],
+    "cookies": [],
+    "postMessage": []
+  },
+  "recommendations": [
+    {
+      "category": "XSS Prevention",
+      "priority": "critical",
+      "count": 2,
+      "recommendation": "Sanitize all user input before rendering HTML. Use DOMPurify or similar libraries."
+    },
+    {
+      "category": "Input Validation",
+      "priority": "high",
+      "count": 4,
+      "recommendation": "Implement proper input validation and sanitization for all user inputs."
+    }
+  ],
+  "securityScore": 21
+}

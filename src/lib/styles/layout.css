@@ -1,0 +1,488 @@
+/* Advanced Layout System with Material Design 3 */
+
+@layer base {
+  :root {
+    /* Layout Variables */
+    --layout-max-width: 1440px;
+    --layout-content-width: 720px;
+    --layout-wide-width: 1080px;
+    
+    /* Spacing Scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    
+    /* Content Spacing */
+    --content-padding-mobile: var(--space-4);
+    --content-padding-tablet: var(--space-6);
+    --content-padding-desktop: var(--space-8);
+    
+    /* Grid Variables */
+    --grid-columns: 12;
+    --grid-gap: var(--space-6);
+    
+    /* Breakpoints */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+  }
+}
+
+@layer components {
+  /* Container System */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--content-padding-mobile);
+    padding-right: var(--content-padding-mobile);
+    
+    @media (min-width: 640px) {
+      padding-left: var(--content-padding-tablet);
+      padding-right: var(--content-padding-tablet);
+    }
+    
+    @media (min-width: 1024px) {
+      padding-left: var(--content-padding-desktop);
+      padding-right: var(--content-padding-desktop);
+    }
+  }
+  
+  .container-full {
+    max-width: var(--layout-max-width);
+  }
+  
+  .container-content {
+    max-width: var(--layout-content-width);
+  }
+  
+  .container-wide {
+    max-width: var(--layout-wide-width);
+  }
+  
+  /* Grid System */
+  .grid {
+    display: grid;
+    gap: var(--grid-gap);
+  }
+  
+  .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  
+  /* Responsive Grid */
+  @media (min-width: 640px) {
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sm\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  
+  @media (min-width: 768px) {
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  
+  /* Flex Layouts */
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .flex-start {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  /* Stack Layouts */
+  .stack {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .stack > * + * {
+    margin-top: var(--space-4);
+  }
+  
+  .stack-sm > * + * {
+    margin-top: var(--space-2);
+  }
+  
+  .stack-lg > * + * {
+    margin-top: var(--space-8);
+  }
+  
+  /* Cluster Layout */
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: center;
+  }
+  
+  /* Sidebar Layout */
+  .with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+  }
+  
+  .with-sidebar > :first-child {
+    flex-basis: 20rem;
+    flex-grow: 1;
+  }
+  
+  .with-sidebar > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: 50%;
+  }
+  
+  /* Center Layout */
+  .center {
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--layout-content-width);
+    padding-left: var(--content-padding-mobile);
+    padding-right: var(--content-padding-mobile);
+    
+    @media (min-width: 640px) {
+      padding-left: var(--content-padding-tablet);
+      padding-right: var(--content-padding-tablet);
+    }
+  }
+  
+  /* Cover Layout */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .cover > * {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  
+  .cover > :first-child:not(.cover-center) {
+    margin-top: 0;
+  }
+  
+  .cover > :last-child:not(.cover-center) {
+    margin-bottom: 0;
+  }
+  
+  .cover > .cover-center {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  /* Frame Layout */
+  .frame {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .frame > * {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .frame-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .frame-portrait {
+    aspect-ratio: 3 / 4;
+  }
+  
+  /* Reel Layout (Horizontal Scroll) */
+  .reel {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--md-outline-variant)) transparent;
+  }
+  
+  .reel::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+  
+  .reel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .reel::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--md-outline-variant));
+    border-radius: 0.25rem;
+  }
+  
+  .reel > * {
+    flex: 0 0 auto;
+  }
+  
+  .reel > * + * {
+    margin-left: var(--space-4);
+  }
+  
+  /* Imposter (Absolute Positioning) */
+  .imposter {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .imposter-contain {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Switcher Layout (Responsive Flex) */
+  .switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  
+  .switcher > * {
+    flex-grow: 1;
+    flex-basis: calc((30rem - 100%) * 999);
+  }
+  
+  /* Icon Layout */
+  .with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .with-icon-start {
+    flex-direction: row;
+  }
+  
+  .with-icon-end {
+    flex-direction: row-reverse;
+  }
+  
+  /* Responsive Padding */
+  .p-responsive {
+    padding: var(--content-padding-mobile);
+    
+    @media (min-width: 640px) {
+      padding: var(--content-padding-tablet);
+    }
+    
+    @media (min-width: 1024px) {
+      padding: var(--content-padding-desktop);
+    }
+  }
+  
+  .px-responsive {
+    padding-left: var(--content-padding-mobile);
+    padding-right: var(--content-padding-mobile);
+    
+    @media (min-width: 640px) {
+      padding-left: var(--content-padding-tablet);
+      padding-right: var(--content-padding-tablet);
+    }
+    
+    @media (min-width: 1024px) {
+      padding-left: var(--content-padding-desktop);
+      padding-right: var(--content-padding-desktop);
+    }
+  }
+  
+  .py-responsive {
+    padding-top: var(--content-padding-mobile);
+    padding-bottom: var(--content-padding-mobile);
+    
+    @media (min-width: 640px) {
+      padding-top: var(--content-padding-tablet);
+      padding-bottom: var(--content-padding-tablet);
+    }
+    
+    @media (min-width: 1024px) {
+      padding-top: var(--content-padding-desktop);
+      padding-bottom: var(--content-padding-desktop);
+    }
+  }
+  
+  /* Section Spacing */
+  .section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    
+    @media (min-width: 640px) {
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-16);
+    }
+    
+    @media (min-width: 1024px) {
+      padding-top: var(--space-20);
+      padding-bottom: var(--space-20);
+    }
+  }
+  
+  /* Content Blocks */
+  .content-block {
+    & + & {
+      margin-top: var(--space-8);
+    }
+  }
+  
+  /* Pull Quotes */
+  .pull-quote {
+    @apply relative my-12 py-8 px-8 md:px-12;
+    @apply text-2xl md:text-3xl leading-relaxed;
+    @apply font-serif italic text-center;
+    @apply border-t-2 border-b-2 border-md-primary/20;
+    
+    &::before,
+    &::after {
+      @apply absolute text-6xl opacity-20;
+      @apply text-md-primary;
+      font-family: Georgia, serif;
+    }
+    
+    &::before {
+      content: '"';
+      top: -0.25em;
+      left: 0;
+    }
+    
+    &::after {
+      content: '"';
+      bottom: -0.5em;
+      right: 0;
+    }
+  }
+  
+  /* Media Gallery */
+  .media-gallery {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
+    .media-item {
+      @apply relative overflow-hidden rounded-lg;
+      @apply bg-surface-variant;
+      aspect-ratio: 4 / 3;
+      
+      img, video {
+        @apply w-full h-full object-cover;
+        @apply transition-transform duration-300;
+      }
+      
+      &:hover img,
+      &:hover video {
+        @apply scale-105;
+      }
+    }
+  }
+  
+  /* Code Block Container */
+  .code-block {
+    @apply relative my-8 rounded-lg overflow-hidden;
+    @apply bg-surface-variant dark:bg-surface-container;
+    
+    .code-header {
+      @apply flex items-center justify-between;
+      @apply px-4 py-2 border-b border-outline-variant;
+      @apply text-sm text-on-surface-variant;
+      
+      .code-language {
+        @apply font-mono;
+      }
+      
+      .code-copy {
+        @apply px-3 py-1 rounded;
+        @apply text-xs uppercase tracking-wide;
+        @apply bg-surface hover:bg-surface-container;
+        @apply transition-colors cursor-pointer;
+      }
+    }
+    
+    pre {
+      @apply m-0 p-4;
+      @apply overflow-x-auto;
+      
+      code {
+        @apply text-sm leading-relaxed;
+      }
+    }
+  }
+}
+
+/* Responsive Visibility Utilities */
+@layer utilities {
+  .mobile-only {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  
+  .tablet-only {
+    @media (max-width: 767px) {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+  
+  .desktop-only {
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+  
+  /* Responsive Text Alignment */
+  .text-responsive {
+    text-align: center;
+    
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+  
+  /* Responsive Ordering */
+  .order-responsive {
+    order: 2;
+    
+    @media (min-width: 768px) {
+      order: 1;
+    }
+  }
+}

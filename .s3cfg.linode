@@ -1,0 +1,47 @@
+[default]
+# Linode Object Storage Configuration
+# Use environment variables for credentials:
+# export LINODE_ACCESS_KEY=your_access_key
+# export LINODE_SECRET_KEY=your_secret_key
+
+access_key = 
+secret_key = 
+host_base = us-east-1.linodeobjects.com
+host_bucket = %(bucket)s.us-east-1.linodeobjects.com
+website_endpoint = http://%(bucket)s.website-us-east-1.linodeobjects.com/
+signurl_use_https = True
+use_https = True
+
+# Performance
+socket_timeout = 300
+max_retry = 5
+retry_delay = 10
+
+# MIME types for proper content serving
+mime_type = {
+    "html": "text/html; charset=utf-8",
+    "htm": "text/html; charset=utf-8",
+    "css": "text/css; charset=utf-8",
+    "js": "application/javascript; charset=utf-8",
+    "json": "application/json; charset=utf-8",
+    "xml": "application/xml; charset=utf-8",
+    "txt": "text/plain; charset=utf-8",
+    "jpg": "image/jpeg",
+    "jpeg": "image/jpeg",
+    "png": "image/png",
+    "gif": "image/gif",
+    "webp": "image/webp",
+    "svg": "image/svg+xml",
+    "ico": "image/x-icon",
+    "woff": "font/woff",
+    "woff2": "font/woff2",
+    "ttf": "font/ttf",
+    "eot": "application/vnd.ms-fontobject",
+    "mp4": "video/mp4",
+    "webm": "video/webm",
+    "ogg": "video/ogg",
+    "mp3": "audio/mpeg",
+    "wav": "audio/wav",
+    "pdf": "application/pdf",
+    "zip": "application/zip"
+}
