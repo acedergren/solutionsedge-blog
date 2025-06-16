@@ -244,7 +244,7 @@ const optimizedImageUrl = `https://example.com/image.jpg?imwidth=400&quality=aut
 </html>
 ```
 
-## Ion: Intelligent Platform Optimization (2012-2018)
+## Ion: Intelligent Platform Optimization (2012-Present)
 
 Ion represented Akamai's shift from basic optimization to intelligent, adaptive performance enhancement based on real-time analytics.
 
