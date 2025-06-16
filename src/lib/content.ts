@@ -59,10 +59,13 @@ export function getAllArticles(): Article[] {
   for (const [path, content] of Object.entries(articleModules)) {
     const { metadata, content: markdownContent } = parseMarkdown(content as string);
     
+    // Extract filename without extension from path to use as ID
+    const filename = path.split('/').pop()?.replace('.md', '') || 'unknown';
+    
     articles.push({
-      id: metadata.id || '0',
+      id: filename,
       title: metadata.title || 'Untitled',
-      excerpt: metadata.excerpt || '',
+      excerpt: metadata.description || metadata.excerpt || '',
       content: markdownContent,
       author: {
         name: metadata.author || 'Anonymous',
@@ -72,7 +75,8 @@ export function getAllArticles(): Article[] {
       publishedAt: new Date(metadata.date || '2024-01-01'),
       readingTime: metadata.readingTime || 5,
       tags: metadata.tags || [],
-      imageUrl: metadata.image || `https://picsum.photos/800/400?random=${metadata.id || 1}`
+      imageUrl: metadata.imageUrl || `https://picsum.photos/800/400?random=${Math.floor(Math.random() * 100)}`,
+      featured: metadata.featured || false
     });
   }
   
@@ -92,8 +96,5 @@ export function getArticlesByTag(tag: string): Article[] {
 }
 
 export function getFeaturedArticles(): Article[] {
-  return getAllArticles().filter(article => 
-    articleModules[`/src/content/articles/${article.id}.md`] && 
-    parseMarkdown(articleModules[`/src/content/articles/${article.id}.md`] as string).metadata.featured
-  );
+  return getAllArticles().filter(article => article.featured);
 }

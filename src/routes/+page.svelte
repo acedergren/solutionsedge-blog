@@ -44,7 +44,7 @@
 		<div class="grid lg:grid-cols-2 gap-8 items-center">
 			<div>
 				<h1 class="article-title mb-4">
-					<a href="/article/{featuredArticle.id}.html" class="hover:underline">
+					<a href="/article/{featuredArticle.id}" class="hover:underline">
 						{featuredArticle.title}
 					</a>
 				</h1>
@@ -64,12 +64,12 @@
 						</p>
 					</div>
 				</div>
-				<a href="/article/{featuredArticle.id}.html" class="btn-secondary inline-flex mt-6">
+				<a href="/article/{featuredArticle.id}" class="btn-secondary inline-flex mt-6">
 					Read Article →
 				</a>
 			</div>
 			<div class="aspect-[16/9] overflow-hidden rounded-lg">
-				<a href="/article/{featuredArticle.id}.html">
+				<a href="/article/{featuredArticle.id}">
 					<img 
 						src={featuredArticle.imageUrl} 
 						alt={featuredArticle.title}
@@ -102,7 +102,7 @@
 					</div>
 					
 					<h2 class="article-card-title">
-						<a href="/article/{article.id}.html" class="hover:underline">
+						<a href="/article/{article.id}" class="hover:underline">
 							{article.title}
 						</a>
 					</h2>
@@ -161,7 +161,7 @@
 								{article.number}
 							</span>
 							<div>
-								<a href="/article/{article.id}.html" class="block">
+								<a href="/article/{article.id}" class="block">
 									<h4 class="font-medium text-sm leading-tight mb-1 hover:underline">
 										{article.title}
 									</h4>
