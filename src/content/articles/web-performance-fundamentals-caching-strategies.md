@@ -151,159 +151,286 @@ CDN edge caching multiplies your server capacity while reducing latency through 
 
 ### TTL Optimization by Content Type
 
-```javascript
-// CDN cache configuration for different content types
-const cdnCacheConfig = {
-  // Static assets
-  'text/css': {
-    ttl: 86400 * 30, // 30 days
-    browserTTL: 86400 * 365, // 1 year
-    tags: ['css', 'static']
-  },
-  
-  'application/javascript': {
-    ttl: 86400 * 30,
-    browserTTL: 86400 * 365,
-    tags: ['js', 'static']
-  },
-  
-  'image/*': {
-    ttl: 86400 * 7, // 1 week
-    browserTTL: 86400 * 30, // 1 month
-    tags: ['images', 'static'],
-    variants: ['webp', 'avif'] // Format variants
-  },
-  
-  // Dynamic content
-  'text/html': {
-    ttl: 300, // 5 minutes
-    browserTTL: 0,
-    tags: ['html', 'dynamic'],
-    varyOn: ['Accept-Language', 'Cookie']
-  },
-  
-  'application/json': {
-    ttl: 60, // 1 minute
-    browserTTL: 0,
-    tags: ['api', 'dynamic'],
-    varyOn: ['Authorization']
-  }
-};
-
-// Cloudflare Workers example for dynamic cache control
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
-});
-
-async function handleRequest(request) {
-  const url = new URL(request.url);
-  const contentType = getExpectedContentType(url.pathname);
-  const config = cdnCacheConfig[contentType] || cdnCacheConfig['default'];
-  
-  // Create cache key with variants
-  const cacheKey = new Request(url.toString(), {
-    headers: {
-      'Accept': request.headers.get('Accept'),
-      'Accept-Language': request.headers.get('Accept-Language')
-    }
-  });
-  
-  // Check cache first
-  const cache = caches.default;
-  let response = await cache.match(cacheKey);
-  
-  if (!response) {
-    // Fetch from origin
-    response = await fetch(request);
-    
-    // Clone response to modify headers
-    response = new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers: {
-        ...response.headers,
-        'Cache-Control': `public, max-age=${config.ttl}`,
-        'CDN-Cache-Control': `max-age=${config.ttl}`,
-        'Browser-Cache-Control': `max-age=${config.browserTTL}`
-      }
-    });
-    
-    // Cache the response
-    event.waitUntil(cache.put(cacheKey, response.clone()));
-  }
-  
-  return response;
-}
-```
-
-### Cache Warming and Preloading
-
-```javascript
-// Intelligent cache warming system
-class CacheWarmer {
-  constructor(cdnEndpoints, priorityUrls) {
-    this.cdnEndpoints = cdnEndpoints;
-    this.priorityUrls = priorityUrls;
-    this.warmingQueue = new PriorityQueue();
-  }
-  
-  async warmCache() {
-    // Warm critical pages first
-    for (const url of this.priorityUrls.critical) {
-      await this.warmUrl(url, { priority: 'high' });
-    }
-    
-    // Warm popular content
-    for (const url of this.priorityUrls.popular) {
-      this.warmingQueue.enqueue(url, 'medium');
-    }
-    
-    // Process warming queue
-    await this.processWarmingQueue();
-  }
-  
-  async warmUrl(url, options = {}) {
-    const requests = this.cdnEndpoints.map(endpoint => {
-      return fetch(`${endpoint}${url}`, {
-        method: 'GET',
-        headers: {
-          'User-Agent': 'CacheWarmer/1.0',
-          'Accept': 'text/html,application/json',
-          'Cache-Control': 'no-cache'
+```json
+// Akamai Property Manager JSON configuration for content-based caching
+{
+  "name": "Cache by Content Type",
+  "children": [
+    {
+      "name": "Static Assets - Long TTL",
+      "criteria": [
+        {
+          "name": "fileExtension",
+          "options": {
+            "matchOperator": "IS_ONE_OF",
+            "values": ["css", "js", "woff", "woff2", "ttf", "eot", "otf"],
+            "matchCaseSensitive": false
+          }
         }
-      });
-    });
+      ],
+      "behaviors": [
+        {
+          "name": "caching",
+          "options": {
+            "behavior": "MAX_AGE",
+            "mustRevalidate": false,
+            "ttl": "30d"
+          }
+        },
+        {
+          "name": "downstreamCache",
+          "options": {
+            "behavior": "ALLOW",
+            "allowBehavior": "LESSER",
+            "sendHeaders": "CACHE_CONTROL",
+            "sendPrivate": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Images - Moderate TTL",
+      "criteria": [
+        {
+          "name": "fileExtension",
+          "options": {
+            "matchOperator": "IS_ONE_OF",
+            "values": ["jpg", "jpeg", "png", "gif", "webp", "svg", "ico", "avif"],
+            "matchCaseSensitive": false
+          }
+        }
+      ],
+      "behaviors": [
+        {
+          "name": "caching",
+          "options": {
+            "behavior": "MAX_AGE",
+            "mustRevalidate": false,
+            "ttl": "7d"
+          }
+        },
+        {
+          "name": "imageManager",
+          "options": {
+            "enabled": true,
+            "resize": true,
+            "applyBestFileType": true,
+            "preferWebP": true,
+            "avifEnable": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "HTML Pages - Short TTL",
+      "criteria": [
+        {
+          "name": "contentType",
+          "options": {
+            "matchOperator": "IS_ONE_OF",
+            "values": ["text/html*"],
+            "matchWildcard": true
+          }
+        }
+      ],
+      "behaviors": [
+        {
+          "name": "caching",
+          "options": {
+            "behavior": "MAX_AGE",
+            "mustRevalidate": true,
+            "ttl": "5m"
+          }
+        },
+        {
+          "name": "tieredDistribution",
+          "options": {
+            "enabled": true
+          }
+        },
+        {
+          "name": "cacheKeyQueryParams",
+          "options": {
+            "behavior": "INCLUDE_ALL_EXCEPT",
+            "parameters": ["utm_*", "fbclid", "gclid", "_ga"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "API Responses - Micro TTL",
+      "criteria": [
+        {
+          "name": "path",
+          "options": {
+            "matchOperator": "MATCHES_ONE_OF",
+            "values": ["/api/*"],
+            "matchCaseSensitive": false
+          }
+        },
+        {
+          "name": "contentType",
+          "options": {
+            "matchOperator": "IS_ONE_OF",
+            "values": ["application/json*"],
+            "matchWildcard": true
+          }
+        }
+      ],
+      "behaviors": [
+        {
+          "name": "caching",
+          "options": {
+            "behavior": "MAX_AGE",
+            "mustRevalidate": true,
+            "ttl": "1m"
+          }
+        },
+        {
+          "name": "cacheId",
+          "options": {
+            "rule": "INCLUDE_HEADERS",
+            "includeHeaders": ["Authorization"]
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+Here's the equivalent configuration in Terraform HCL format for infrastructure as code:
+
+```hcl
+# Akamai Terraform configuration for content-based caching
+resource "akamai_property_rules_builder" "cache_rules" {
+  rules_v2023_01_05 {
+    name = "Cache by Content Type"
     
-    // Warm all edge locations
-    await Promise.all(requests);
-    
-    console.log(`Warmed cache for ${url} across ${this.cdnEndpoints.length} edges`);
-  }
-  
-  async processWarmingQueue() {
-    while (!this.warmingQueue.isEmpty()) {
-      const batch = this.warmingQueue.dequeueBatch(10);
-      await Promise.all(
-        batch.map(url => this.warmUrl(url))
-      );
+    children {
+      # Static Assets - Long TTL
+      rule {
+        name = "Static Assets - Long TTL"
+        
+        criteria {
+          file_extension {
+            match_operator = "IS_ONE_OF"
+            values = ["css", "js", "woff", "woff2", "ttf", "eot", "otf"]
+            match_case_sensitive = false
+          }
+        }
+        
+        behaviors {
+          caching {
+            behavior = "MAX_AGE"
+            must_revalidate = false
+            ttl = "30d"
+          }
+          
+          downstream_cache {
+            behavior = "ALLOW"
+            allow_behavior = "LESSER"
+            send_headers = "CACHE_CONTROL"
+            send_private = false
+          }
+        }
+      }
       
-      // Rate limiting
-      await new Promise(resolve => setTimeout(resolve, 100));
+      # Images - Moderate TTL with optimization
+      rule {
+        name = "Images - Moderate TTL"
+        
+        criteria {
+          file_extension {
+            match_operator = "IS_ONE_OF"
+            values = ["jpg", "jpeg", "png", "gif", "webp", "svg", "ico", "avif"]
+            match_case_sensitive = false
+          }
+        }
+        
+        behaviors {
+          caching {
+            behavior = "MAX_AGE"
+            must_revalidate = false
+            ttl = "7d"
+          }
+          
+          image_manager {
+            enabled = true
+            resize = true
+            apply_best_file_type = true
+            prefer_webp = true
+            avif_enable = true
+          }
+        }
+      }
+      
+      # HTML Pages - Short TTL with query param optimization
+      rule {
+        name = "HTML Pages - Short TTL"
+        
+        criteria {
+          content_type {
+            match_operator = "IS_ONE_OF"
+            values = ["text/html*"]
+            match_wildcard = true
+          }
+        }
+        
+        behaviors {
+          caching {
+            behavior = "MAX_AGE"
+            must_revalidate = true
+            ttl = "5m"
+          }
+          
+          tiered_distribution {
+            enabled = true
+          }
+          
+          cache_key_query_params {
+            behavior = "INCLUDE_ALL_EXCEPT"
+            parameters = ["utm_*", "fbclid", "gclid", "_ga"]
+          }
+        }
+      }
+      
+      # API Responses - Micro caching
+      rule {
+        name = "API Responses - Micro TTL"
+        
+        criteria {
+          path {
+            match_operator = "MATCHES_ONE_OF"
+            values = ["/api/*"]
+            match_case_sensitive = false
+          }
+          
+          content_type {
+            match_operator = "IS_ONE_OF"
+            values = ["application/json*"]
+            match_wildcard = true
+          }
+        }
+        
+        behaviors {
+          caching {
+            behavior = "MAX_AGE"
+            must_revalidate = true
+            ttl = "1m"
+          }
+          
+          cache_id {
+            rule = "INCLUDE_HEADERS"
+            include_headers = ["Authorization"]
+          }
+        }
+      }
     }
   }
 }
-
-// Usage
-const warmer = new CacheWarmer(
-  ['https://edge1.cdn.com', 'https://edge2.cdn.com'],
-  {
-    critical: ['/index.html', '/product/popular', '/api/config'],
-    popular: ['/about', '/contact', '/blog/latest']
-  }
-);
-
-await warmer.warmCache();
 ```
+
 
 ## Application-Level Caching: Smart Data Management
 
@@ -699,41 +826,6 @@ class TTLManager:
         else:
             return TTLManager.calculate_ttl_with_jitter(base_ttl)
 
-# Advanced cache warming with predictive invalidation
-class PredictiveCacheManager:
-    def __init__(self, cache_layers, analytics_client):
-        self.cache_layers = cache_layers
-        self.analytics = analytics_client
-        
-    async def smart_cache_warming(self):
-        """Predictively warm cache based on usage patterns."""
-        # Get trending content
-        trending = await self.analytics.get_trending_content()
-        
-        # Get user behavior patterns
-        user_patterns = await self.analytics.get_user_patterns()
-        
-        # Predict next popular content
-        predicted_popular = self._predict_popular_content(trending, user_patterns)
-        
-        # Warm cache for predicted content
-        await self._warm_predicted_content(predicted_popular)
-    
-    def _predict_popular_content(self, trending, patterns):
-        """Predict what content will be popular next."""
-        # Simple prediction algorithm
-        predicted = []
-        
-        for item in trending:
-            # Consider time-based patterns
-            if self._is_likely_to_trend(item, patterns):
-                predicted.append({
-                    'url': item['url'],
-                    'priority': item['growth_rate'],
-                    'predicted_ttl': self._calculate_optimal_ttl(item)
-                })
-        
-        return sorted(predicted, key=lambda x: x['priority'], reverse=True)
 ```
 
 ## Performance Monitoring and Optimization

@@ -153,7 +153,7 @@ const variantStrategies = {
 
 Even 1-second caching can dramatically reduce origin load:
 
-```javascript
+```json
 // Akamai Property Manager behavior
 {
   "name": "API Micro-caching",
@@ -172,7 +172,7 @@ Even 1-second caching can dramatically reduce origin load:
       "name": "caching",
       "options": {
         "behavior": "MAX_AGE",
-        "maxAge": "1s",
+        "ttl": "1s",
         "honorPrivateEnabled": true,
         "honorNoStoreEnabled": true
       }
@@ -198,7 +198,7 @@ const microCachingImpact = {
 
 ### 2. Cache Key Optimization
 
-```javascript
+```javascript for EdgeWorkers
 // Akamai cache key customization
 export function onClientRequest(request) {
   // Remove unnecessary query parameters from cache key
@@ -228,20 +228,29 @@ export function onClientRequest(request) {
 
 For large files, cache chunks even if the full download doesn't complete:
 
-```javascript
+```json
 // Akamai POC configuration
 {
   "name": "Partial Object Caching",
   "behaviors": [
     {
-      "name": "partialObjectCaching",
+      "name": "caching",
       "options": {
-        "enabled": true,
-        "minimumObjectSize": "1MB"
+        "behavior": "MAX_AGE",
+        "ttl": "1h"
       }
     },
     {
-      "name": "rangeRequests",
+      "name": "largeFileOptimization",
+      "options": {
+        "enabled": true,
+        "enablePartialObjectCaching": true,
+        "minimumSize": "1MB",
+        "maximumSize": "16GB"
+      }
+    },
+    {
+      "name": "answerRangeRequests",
       "options": {
         "enabled": true
       }
@@ -262,7 +271,7 @@ const pocBenefits = {
 
 ### 1. SureRoute: TCP Optimization for Dynamic Content
 
-```javascript
+```json
 // Akamai SureRoute configuration
 {
   "name": "SureRoute Optimization",
@@ -280,10 +289,12 @@ const pocBenefits = {
       "name": "sureRoute",
       "options": {
         "enabled": true,
-        "type": "PERFORMANCE",
-        "testObjectPath": "/sureroute-test.html",
+        "forceSslForward": true,
+        "enableCustomKey": false,
+        "testObjectUrl": "/akamai/sureroute-test-object.html",
+        "toHostStatus": "INCOMING_HH",
         "raceStatTtl": "30m",
-        "forceSslForward": true
+        "toHost": null
       }
     }
   ]
@@ -608,7 +619,7 @@ class OffloadAnalytics {
 
 ### 4. Error Handling and Failover
 
-```javascript
+```json
 // Akamai error handling configuration
 {
   "name": "Origin Failure Recovery",
@@ -618,30 +629,40 @@ class OffloadAnalytics {
       "options": {
         "enabled": true,
         "ttl": "5m",
-        "cacheHttpStatus": [500, 502, 503, 504]
+        "preserveStale": true
       }
     },
     {
-      "name": "siteFailover",
+      "name": "healthDetection",
+      "options": {
+        "maximumNumberOfOrigins": 2,
+        "originHealthCheckProtocol": "HTTPS",
+        "originHealthCheckPath": "/health",
+        "originHealthCheckHosts": ["origin.example.com", "backup.example.com"],
+        "interval": 60
+      }
+    },
+    {
+      "name": "originFailureRecoveryPolicy",
       "options": {
         "enabled": true,
-        "failoverDomain": "backup.example.com",
-        "failoverCriteria": [
-          {
-            "statusCode": 500,
-            "threshold": 10,
-            "period": "1m"
-          }
-        ]
+        "monitorOriginResponses": true,
+        "monitorStatusCodes": [500, 502, 503, 504],
+        "monitorEdgeStatusCodes": [],
+        "statusCodesThreshold": 10,
+        "netStorageHostname": "",
+        "cpCodeId": null,
+        "recoveryConfigName": "backup-origin"
       }
     },
     {
       "name": "constructResponse",
       "options": {
         "enabled": true,
-        "status": 503,
+        "responseCode": 503,
         "body": "<!DOCTYPE html><html><body><h1>Temporarily Unavailable</h1><p>We'll be back shortly.</p></body></html>",
-        "contentType": "text/html"
+        "contentType": "text/html",
+        "forceEvictionOnContentChange": false
       }
     }
   ]
