@@ -283,9 +283,14 @@
 			</div>
 			
 			<div class="mt-12 pt-8 border-t border-md-outline dark:border-md-dark-outline">
-				<p class="text-sm text-md-on-surface-variant dark:text-md-dark-on-surface-variant text-center">
-					© 2024 The Solutions Edge by Alexander Cedergren. All rights reserved.
-				</p>
+				<div class="text-center space-y-2">
+					<p class="text-sm text-md-on-surface-variant dark:text-md-dark-on-surface-variant">
+						© 2024 The Solutions Edge by Alexander Cedergren. All rights reserved.
+					</p>
+					<p class="text-xs text-md-on-surface-variant dark:text-md-dark-on-surface-variant">
+						All opinions expressed on this site are my personal views and do not represent the opinions or positions of my employer. My employer is not liable for any content published on this site.
+					</p>
+				</div>
 			</div>
 		</div>
 	</footer>

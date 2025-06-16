@@ -12,10 +12,11 @@
 	const articles = allArticles.filter(a => a.id !== featuredArticle?.id);
 	
 	// For now, just use the same articles as trending (in real app, this would be based on views/engagement)
-	const trendingArticles: TrendingArticle[] = allArticles.slice(0, 6).map((article, index) => ({
+	const trendingArticles = allArticles.slice(0, 6).map((article, index) => ({
 		number: String(index + 1).padStart(2, '0'),
 		title: article.title,
-		author: article.author.name
+		author: article.author.name,
+		id: article.id
 	}));
 	
 	// Extract unique topics from all articles
@@ -160,9 +161,11 @@
 								{article.number}
 							</span>
 							<div>
-								<h4 class="font-medium text-sm leading-tight mb-1 hover:underline cursor-pointer">
-									{article.title}
-								</h4>
+								<a href="/article/{article.id}.html" class="block">
+									<h4 class="font-medium text-sm leading-tight mb-1 hover:underline">
+										{article.title}
+									</h4>
+								</a>
 								<p class="text-xs text-md-on-surface-variant">
 									{article.author}
 								</p>

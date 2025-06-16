@@ -20,6 +20,7 @@ export interface TrendingArticle {
 	number: string;
 	title: string;
 	author: string;
+	id: string;
 }
 
 export interface Topic {

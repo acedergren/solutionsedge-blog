@@ -57,7 +57,6 @@ This approach demonstrates the revolutionary speed and accuracy possible when hu
 <!-- Placeholder for GitHub screenshots -->
 <div class="github-screenshots">
   <img src="/images/alecs-screenshots/repo-overview.png" alt="ALECS GitHub Repository Overview" class="w-full rounded-lg shadow-lg mb-4" />
-  <img src="/images/alecs-screenshots/code-structure.png" alt="ALECS Code Structure" class="w-full rounded-lg shadow-lg mb-4" />
   <img src="/images/alecs-screenshots/mcp-integration.png" alt="MCP Integration Example" class="w-full rounded-lg shadow-lg mb-4" />
 </div>
 
@@ -82,7 +81,6 @@ Join in, test it, and help shape the future of conversational infrastructure man
 
 ### Get Started
 
-- 🔗 **GitHub Repository**: [Coming Soon - Screenshots Above]
-- 📺 **Video Tutorial**: Upload your demo to `/static/videos/alecs-demo.mp4`
+- 🔗 **GitHub Repository**: https://github.com/acedergren/alecs-mcp-server-akamai
 - 📚 **Documentation**: Full setup and usage guides available in the repo
 - 💬 **Community**: Join the discussion and contribute your ideas
