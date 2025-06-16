@@ -9,7 +9,7 @@ excerpt: "In presales, your technical expertise is only half the battle. The rea
 featured: false
 ---
 
-Every presales engineer knows that moment: You're deep into a technical discussion about your solution's architecture, and you notice the CEO's eyes glazing over. The CTO is engaged, but the business stakeholders are checking their phones. You're losing the room, and with it, potentially the deal.
+Every presales engineer knows that moment: You're deep into a technical discussion about your solution's architecture, and you notice the customers's eyes glazing over. The techie is engaged, but the business stakeholders are checking their phones. You're losing the room, and with it, potentially the deal.
 
 The problem isn't your technical knowledge—it's how you're presenting it.
 
