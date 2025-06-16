@@ -1,17 +1,21 @@
 # The Solutions Edge Blog
 
-A modern blog built with SvelteKit, Material Design 3, and Tailwind CSS. Optimized for static site generation and deployment to Linode Object Storage.
+A modern, privacy-compliant blog built with SvelteKit, Material Design 3, and Tailwind CSS. Features EU GDPR-compliant cookie consent and comprehensive privacy controls.
 
 ## Features
 
-- 🎨 Material Design 3 theming
+- 🎨 Material Design 3 theming with expressive typography
 - 🚀 Static Site Generation (SSG) with SvelteKit
 - 💨 Tailwind CSS for utility-first styling
-- 📱 Fully responsive design
-- 🌙 Dark theme by default
-- ⚡ Optimized for performance
-- 🔍 SEO-friendly
+- 📱 Fully responsive design with mobile-first approach
+- 🌙 Dark theme support with system preference detection
+- ⚡ Optimized for performance (no compression since Akamai handles it)
+- 🔍 SEO-friendly with structured data
 - 📦 Ready for Linode Object Storage deployment
+- 🍪 **EU GDPR-compliant cookie consent system**
+- 🔒 **Comprehensive privacy policy with mPulse RUM integration**
+- 📊 **Real User Monitoring with Akamai mPulse**
+- 🛡️ **Privacy-first design with granular consent controls**
 
 ## Getting Started
 
