@@ -104,7 +104,7 @@
 			<!-- Tags -->
 			<div class="flex flex-wrap gap-2 pb-8">
 				{#each article.tags as tag}
-					<a href="/topic/{tag.toLowerCase().replace(/\s+/g, '-')}.html" class="tag">
+					<a href="/topic/{tag.toLowerCase().replace(/\s+/g, '-')}" class="tag">
 						{tag}
 					</a>
 				{/each}

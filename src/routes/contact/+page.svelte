@@ -148,12 +148,10 @@
 
 			<div class="p-6 bg-md-surface-variant dark:bg-md-dark-surface-variant rounded-lg">
 				<h4 class="font-bold mb-2">Want to Contribute?</h4>
-				<p class="text-sm text-md-on-surface-variant mb-4">
-					We're always looking for talented writers to share their expertise.
+				<p class="text-sm text-md-on-surface-variant">
+					We're always looking for talented writers to share their expertise. 
+					Contact us to learn more about contributing to The Solutions Edge.
 				</p>
-				<a href="/write" class="btn-secondary">
-					Start Writing
-				</a>
 			</div>
 
 			<div class="p-6 bg-md-primary/10 rounded-lg">

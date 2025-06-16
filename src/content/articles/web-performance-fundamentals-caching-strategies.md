@@ -2,7 +2,7 @@
 title: "Web Performance Fundamentals: The Complete Guide to Caching Strategies"
 description: "Master the art of web performance optimization through strategic caching—from browser cache headers to CDN edge strategies and everything in between."
 author: "Alexander Cedergren"
-date: "2024-07-20"
+date: "2024-05-20"
 readingTime: 12
 tags: ["Web Performance", "Caching", "CDN", "Optimization", "HTTP"]
 topic: "Web Performance"

@@ -91,9 +91,6 @@
 				<a href="/contact" class="btn-primary">
 					Contact Us
 				</a>
-				<a href="/write" class="btn-secondary">
-					Write for Us
-				</a>
 			</div>
 		</section>
 	</div>

@@ -2,7 +2,7 @@
 id: 1
 title: "Akamai, it's been 8 amazing years… but now it's time we talk about ALECS"
 author: "Alexander Cedergren"
-date: "2024-05-15"
+date: "2025-06-15"
 tags: ["Cloud Infrastructure", "Automation", "AI", "MCP", "Open Source", "DevOps"]
 description: "Introducing ALECS—A Launchgrid for Edge & Cloud Services—an open-source experiment leveraging Anthropic's Model Context Protocol to make cloud infrastructure management conversational and intuitive."
 excerpt: "Cloud infrastructure management today often feels like navigating a labyrinth of dashboards, scripts, and obscure APIs. What if, instead, your infrastructure was conversational?"
