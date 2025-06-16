@@ -63,7 +63,7 @@
 			<h2 class="text-2xl font-bold mb-4">The Author</h2>
 			<div class="flex items-start gap-6 p-6 bg-md-surface-variant dark:bg-md-dark-surface-variant rounded-lg">
 				<img 
-					src="https://ui-avatars.com/api/?name=Alexander+Cedergren&background=1a8917&color=fff&size=120" 
+					src="https://ui-avatars.com/api/?name=Alexander+Cedergren&background=3b82f6&color=fff&size=120" 
 					alt="Alexander Cedergren"
 					class="w-20 h-20 rounded-full"
 				/>

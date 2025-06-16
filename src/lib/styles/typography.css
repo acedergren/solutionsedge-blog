@@ -461,3 +461,130 @@
   font-style: normal;
   src: url('/fonts/JetBrainsMono-Variable.woff2') format('woff2');
 }
+
+/* Material Design 3 Expressive Typography Classes */
+
+/* Display Typography */
+.md-display-large {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-display-large-size);
+  line-height: var(--md-display-large-line);
+  letter-spacing: var(--md-display-large-tracking);
+  font-weight: var(--md-display-large-weight);
+}
+
+.md-display-medium {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-display-medium-size);
+  line-height: var(--md-display-medium-line);
+  letter-spacing: var(--md-display-medium-tracking);
+  font-weight: var(--md-display-medium-weight);
+}
+
+.md-display-small {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-display-small-size);
+  line-height: var(--md-display-small-line);
+  letter-spacing: var(--md-display-small-tracking);
+  font-weight: var(--md-display-small-weight);
+}
+
+/* Headline Typography */
+.md-headline-large {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-headline-large-size);
+  line-height: var(--md-headline-large-line);
+  letter-spacing: var(--md-headline-large-tracking);
+  font-weight: var(--md-headline-large-weight);
+}
+
+.md-headline-medium {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-headline-medium-size);
+  line-height: var(--md-headline-medium-line);
+  letter-spacing: var(--md-headline-medium-tracking);
+  font-weight: var(--md-headline-medium-weight);
+}
+
+.md-headline-small {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-headline-small-size);
+  line-height: var(--md-headline-small-line);
+  letter-spacing: var(--md-headline-small-tracking);
+  font-weight: var(--md-headline-small-weight);
+}
+
+/* Title Typography */
+.md-title-large {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-title-large-size);
+  line-height: var(--md-title-large-line);
+  letter-spacing: var(--md-title-large-tracking);
+  font-weight: var(--md-title-large-weight);
+}
+
+.md-title-medium {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-title-medium-size);
+  line-height: var(--md-title-medium-line);
+  letter-spacing: var(--md-title-medium-tracking);
+  font-weight: var(--md-title-medium-weight);
+}
+
+.md-title-small {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-title-small-size);
+  line-height: var(--md-title-small-line);
+  letter-spacing: var(--md-title-small-tracking);
+  font-weight: var(--md-title-small-weight);
+}
+
+/* Body Typography */
+.md-body-large {
+  font-family: var(--md-font-serif);
+  font-size: var(--md-body-large-size);
+  line-height: var(--md-body-large-line);
+  letter-spacing: var(--md-body-large-tracking);
+  font-weight: var(--md-body-large-weight);
+}
+
+.md-body-medium {
+  font-family: var(--md-font-serif);
+  font-size: var(--md-body-medium-size);
+  line-height: var(--md-body-medium-line);
+  letter-spacing: var(--md-body-medium-tracking);
+  font-weight: var(--md-body-medium-weight);
+}
+
+.md-body-small {
+  font-family: var(--md-font-serif);
+  font-size: var(--md-body-small-size);
+  line-height: var(--md-body-small-line);
+  letter-spacing: var(--md-body-small-tracking);
+  font-weight: var(--md-body-small-weight);
+}
+
+/* Label Typography */
+.md-label-large {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-label-large-size);
+  line-height: var(--md-label-large-line);
+  letter-spacing: var(--md-label-large-tracking);
+  font-weight: var(--md-label-large-weight);
+}
+
+.md-label-medium {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-label-medium-size);
+  line-height: var(--md-label-medium-line);
+  letter-spacing: var(--md-label-medium-tracking);
+  font-weight: var(--md-label-medium-weight);
+}
+
+.md-label-small {
+  font-family: var(--md-font-sans);
+  font-size: var(--md-label-small-size);
+  line-height: var(--md-label-small-line);
+  letter-spacing: var(--md-label-small-tracking);
+  font-weight: var(--md-label-small-weight);
+}

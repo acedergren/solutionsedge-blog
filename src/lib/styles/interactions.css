@@ -4,9 +4,9 @@
   /* Navigation Bar */
   .navbar {
     @apply sticky top-0 z-40;
-    @apply bg-surface/95 dark:bg-surface/95;
+    @apply bg-md-surface dark:bg-md-dark-surface/95 dark:bg-surface/95;
     @apply backdrop-blur-md;
-    @apply border-b border-outline-variant;
+    @apply border-b border-md-outline-variant dark:border-md-dark-outline-variant;
     transition: transform 300ms ease, box-shadow 300ms ease;
     
     &.navbar-hidden {
@@ -27,10 +27,10 @@
   .navbar-brand {
     @apply flex items-center gap-3;
     @apply text-xl md:text-2xl font-bold;
-    @apply text-on-surface;
+    @apply text-md-on-surface dark:text-md-dark-on-surface;
     
     &:hover {
-      @apply text-primary;
+      @apply text-md-primary;
     }
   }
   
@@ -40,20 +40,20 @@
   
   .navbar-link {
     @apply relative py-2;
-    @apply text-on-surface-variant;
+    @apply text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
     @apply transition-colors duration-200;
     
     &:hover {
-      @apply text-on-surface;
+      @apply text-md-on-surface dark:text-md-dark-on-surface;
     }
     
     &.active {
-      @apply text-primary;
+      @apply text-md-primary;
       
       &::after {
         content: '';
         @apply absolute bottom-0 left-0 right-0;
-        @apply h-0.5 bg-primary;
+        @apply h-0.5 bg-md-primary;
         @apply rounded-full;
       }
     }
@@ -67,30 +67,30 @@
   
   .search-input {
     @apply w-full px-12 py-3;
-    @apply bg-surface-variant dark:bg-surface-container;
-    @apply border border-outline-variant;
+    @apply bg-md-surface dark:bg-md-dark-surface-variant dark:bg-md-dark-surface-container;
+    @apply border border-md-outline-variant dark:border-md-dark-outline-variant;
     @apply rounded-full;
-    @apply text-on-surface placeholder:text-on-surface-variant;
+    @apply text-md-on-surface dark:text-md-dark-on-surface placeholder:text-md-on-surface-variant dark:placeholder:text-md-dark-on-surface-variant;
     @apply transition-all duration-200;
     
     &:focus {
       @apply outline-none;
-      @apply border-primary;
-      @apply bg-surface dark:bg-surface-container-high;
+      @apply border-md-primary;
+      @apply bg-md-surface dark:bg-md-dark-surface-container-high;
       box-shadow: 0 0 0 3px hsl(var(--md-primary) / 0.1);
     }
   }
   
   .search-icon {
     @apply absolute left-4 top-1/2 -translate-y-1/2;
-    @apply w-5 h-5 text-on-surface-variant;
+    @apply w-5 h-5 text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
   }
   
   .search-clear {
     @apply absolute right-4 top-1/2 -translate-y-1/2;
     @apply p-1 rounded-full;
-    @apply text-on-surface-variant hover:text-on-surface;
-    @apply hover:bg-surface-container;
+    @apply text-md-on-surface-variant dark:text-md-dark-on-surface-variant hover:text-md-on-surface dark:hover:text-md-dark-on-surface;
+    @apply hover:bg-md-surface-container dark:hover:bg-md-dark-surface-container;
     @apply transition-all duration-200;
     @apply cursor-pointer;
   }
@@ -98,30 +98,30 @@
   .search-results {
     @apply absolute top-full mt-2;
     @apply w-full max-h-96 overflow-y-auto;
-    @apply bg-surface dark:bg-surface-container;
-    @apply border border-outline-variant;
+    @apply bg-md-surface dark:bg-md-dark-surface dark:bg-md-dark-surface-container;
+    @apply border border-md-outline-variant dark:border-md-dark-outline-variant;
     @apply rounded-2xl shadow-xl;
-    @apply divide-y divide-outline-variant;
+    @apply divide-y divide-md-outline-variant dark:divide-md-dark-outline-variant;
   }
   
   .search-result-item {
     @apply p-4;
-    @apply hover:bg-surface-variant dark:hover:bg-surface-container-high;
+    @apply hover:bg-md-surface-variant dark:hover:bg-md-surface-container dark:hover:bg-md-dark-surface-container-high;
     @apply cursor-pointer transition-colors;
     
     .result-title {
-      @apply font-medium text-on-surface;
+      @apply font-medium text-md-on-surface dark:text-md-dark-on-surface;
       @apply mb-1;
     }
     
     .result-excerpt {
-      @apply text-sm text-on-surface-variant;
+      @apply text-sm text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
       @apply line-clamp-2;
     }
     
     .result-meta {
       @apply mt-2 flex items-center gap-4;
-      @apply text-xs text-on-surface-variant;
+      @apply text-xs text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
     }
   }
   
@@ -132,21 +132,21 @@
   
   .category-chip {
     @apply px-4 py-2;
-    @apply bg-surface-variant dark:bg-surface-container;
-    @apply border border-outline-variant;
+    @apply bg-md-surface dark:bg-md-dark-surface-variant dark:bg-md-dark-surface-container;
+    @apply border border-md-outline-variant dark:border-md-dark-outline-variant;
     @apply rounded-full;
-    @apply text-sm text-on-surface-variant;
+    @apply text-sm text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
     @apply transition-all duration-200;
     @apply cursor-pointer select-none;
     
     &:hover {
-      @apply bg-surface-container dark:bg-surface-container-high;
-      @apply border-outline;
+      @apply bg-md-surface dark:bg-md-dark-surface-container dark:bg-md-dark-surface-container-high;
+      @apply border-md-outline dark:border-md-dark-outline;
     }
     
     &.active {
-      @apply bg-primary text-on-primary;
-      @apply border-primary;
+      @apply bg-md-primary text-md-on-primary;
+      @apply border-md-primary;
     }
     
     &:focus-visible {
@@ -159,7 +159,7 @@
   .cta-primary {
     @apply inline-flex items-center gap-2;
     @apply px-6 py-3 md:px-8 md:py-4;
-    @apply bg-primary text-on-primary;
+    @apply bg-md-primary text-md-on-primary;
     @apply rounded-full;
     @apply font-medium;
     @apply transition-all duration-200;
@@ -183,13 +183,13 @@
   .cta-secondary {
     @apply inline-flex items-center gap-2;
     @apply px-6 py-3 md:px-8 md:py-4;
-    @apply border-2 border-primary text-primary;
+    @apply border-2 border-md-primary text-md-primary;
     @apply rounded-full;
     @apply font-medium;
     @apply transition-all duration-200;
     
     &:hover {
-      @apply bg-primary text-on-primary;
+      @apply bg-md-primary text-md-on-primary;
       transform: translateY(-2px);
     }
     
@@ -201,8 +201,8 @@
   /* Interactive Cards */
   .interactive-card {
     @apply relative overflow-hidden;
-    @apply bg-surface dark:bg-surface-container;
-    @apply border border-outline-variant;
+    @apply bg-md-surface dark:bg-md-dark-surface dark:bg-md-dark-surface-container;
+    @apply border border-md-outline-variant dark:border-md-dark-outline-variant;
     @apply rounded-2xl;
     @apply transition-all duration-300;
     @apply cursor-pointer;
@@ -210,18 +210,18 @@
     &::before {
       content: '';
       @apply absolute inset-0;
-      @apply bg-gradient-to-br from-primary/0 to-primary/0;
+      @apply bg-gradient-to-br from-md-primary/0 to-md-primary/0;
       @apply transition-all duration-300;
       @apply pointer-events-none;
     }
     
     &:hover {
-      @apply border-primary/50;
+      @apply border-md-primary/50;
       @apply shadow-xl;
       transform: translateY(-4px);
       
       &::before {
-        @apply from-primary/5 to-primary/10;
+        @apply from-md-primary/5 to-md-primary/10;
       }
     }
     
@@ -233,7 +233,7 @@
   /* Tab Navigation */
   .tab-list {
     @apply flex items-center;
-    @apply border-b border-outline-variant;
+    @apply border-b border-md-outline-variant dark:border-md-dark-outline-variant;
     @apply overflow-x-auto scrollbar-hide;
   }
   
@@ -241,28 +241,28 @@
     @apply relative flex-shrink-0;
     @apply px-4 md:px-6 py-3 md:py-4;
     @apply text-sm md:text-base font-medium;
-    @apply text-on-surface-variant;
+    @apply text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
     @apply transition-all duration-200;
     @apply cursor-pointer;
     
     &:hover {
-      @apply text-on-surface;
-      @apply bg-surface-variant/50;
+      @apply text-md-on-surface dark:text-md-dark-on-surface;
+      @apply bg-md-surface dark:bg-md-dark-surface-variant/50;
     }
     
     &.active {
-      @apply text-primary;
+      @apply text-md-primary;
       
       &::after {
         content: '';
         @apply absolute bottom-0 left-0 right-0;
-        @apply h-0.5 bg-primary;
+        @apply h-0.5 bg-md-primary;
         animation: tab-indicator 200ms ease;
       }
     }
     
     &:focus-visible {
-      @apply outline-none bg-surface-variant;
+      @apply outline-none bg-md-surface-variant dark:bg-md-dark-surface-variant;
     }
   }
   
@@ -278,7 +278,7 @@
   /* Loading States */
   .loading-skeleton {
     @apply relative overflow-hidden;
-    @apply bg-surface-variant dark:bg-surface-container;
+    @apply bg-md-surface dark:bg-md-dark-surface-variant dark:bg-md-dark-surface-container;
     @apply rounded;
     
     &::after {
@@ -305,8 +305,8 @@
   
   .loading-spinner {
     @apply inline-block w-5 h-5;
-    @apply border-2 border-surface-variant;
-    @apply border-t-primary;
+    @apply border-2 border-md-surface-variant dark:border-md-dark-surface-variant;
+    @apply border-t-md-primary;
     @apply rounded-full;
     animation: spinner 600ms linear infinite;
   }
@@ -321,7 +321,7 @@
     @apply inline-flex items-center gap-1;
     
     span {
-      @apply w-2 h-2 bg-primary rounded-full;
+      @apply w-2 h-2 bg-md-primary rounded-full;
       animation: dot-bounce 1.4s ease-in-out infinite;
       
       &:nth-child(2) {
@@ -353,7 +353,7 @@
   .skip-link {
     @apply absolute left-4 top-4;
     @apply px-4 py-2;
-    @apply bg-primary text-on-primary;
+    @apply bg-md-primary text-md-on-primary;
     @apply rounded-full;
     @apply font-medium;
     @apply transform -translate-y-full;
@@ -375,7 +375,7 @@
   .tooltip {
     @apply absolute z-50;
     @apply px-3 py-2;
-    @apply bg-inverse-surface text-inverse-on-surface;
+    @apply bg-md-inverse-surface text-md-inverse-on-surface;
     @apply text-sm rounded-lg;
     @apply pointer-events-none;
     @apply opacity-0 scale-95;
@@ -406,7 +406,7 @@
   .mobile-menu {
     @apply fixed inset-y-0 right-0 z-50;
     @apply w-full max-w-sm;
-    @apply bg-surface dark:bg-surface;
+    @apply bg-md-surface dark:bg-md-dark-surface dark:bg-surface;
     @apply shadow-2xl;
     @apply transform translate-x-full;
     @apply transition-transform duration-300 ease-out;
@@ -418,7 +418,7 @@
   
   .mobile-menu-backdrop {
     @apply fixed inset-0 z-40;
-    @apply bg-scrim/50;
+    @apply bg-black/50 dark:bg-black/60;
     @apply opacity-0 pointer-events-none;
     @apply transition-opacity duration-300;
     
@@ -430,7 +430,7 @@
   .mobile-menu-toggle {
     @apply md:hidden;
     @apply p-2 -mr-2;
-    @apply text-on-surface;
+    @apply text-md-on-surface dark:text-md-dark-on-surface;
     
     svg {
       @apply w-6 h-6;

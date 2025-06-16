@@ -2,21 +2,21 @@
 
 @layer base {
   :root {
-    /* Light Theme Colors - Warm, Content-Focused */
-    --md-primary: 220 13% 20%;              /* Dark Blue Grey */
-    --md-primary-container: 220 13% 30%;    
+    /* Light Theme Colors - Blue-Centric Design */
+    --md-primary: 214 100% 59%;             /* Blue-500 */
+    --md-primary-container: 214 100% 92%;   /* Blue-100 */
     --md-on-primary: 0 0% 100%;
-    --md-on-primary-container: 220 13% 90%;
+    --md-on-primary-container: 213 94% 33%; /* Blue-800 */
     
-    --md-secondary: 30 10% 30%;             /* Warm Grey */
-    --md-secondary-container: 30 10% 40%;
+    --md-secondary: 188 100% 42%;           /* Cyan-500 */
+    --md-secondary-container: 185 100% 97%; /* Cyan-50 */
     --md-on-secondary: 0 0% 100%;
-    --md-on-secondary-container: 30 10% 90%;
+    --md-on-secondary-container: 186 67% 19%; /* Cyan-800 */
     
-    --md-tertiary: 340 10% 35%;             /* Muted Rose */
-    --md-tertiary-container: 340 10% 45%;
+    --md-tertiary: 217 91% 47%;             /* Blue-700 */
+    --md-tertiary-container: 214 100% 92%;  /* Blue-100 */
     --md-on-tertiary: 0 0% 100%;
-    --md-on-tertiary-container: 340 10% 90%;
+    --md-on-tertiary-container: 213 94% 33%; /* Blue-800 */
     
     --md-error: 0 65% 51%;
     --md-error-container: 0 65% 61%;
@@ -44,23 +44,23 @@
     --md-shadow: 0 0% 0%;
   }
   
-  /* Dark Theme Colors - Optimized for Reading Comfort */
+  /* Dark Theme Colors - Blue-Centric Dark Mode */
   .dark {
-    /* Dark surfaces with warm undertones to reduce eye strain */
-    --md-primary: 220 40% 75%;              /* Soft Blue Grey */
-    --md-primary-container: 220 35% 25%;
-    --md-on-primary: 220 40% 10%;
-    --md-on-primary-container: 220 40% 85%;
+    /* Dark surfaces with blue undertones for cohesive theme */
+    --md-primary: 214 100% 75%;             /* Light Blue-400 */
+    --md-primary-container: 213 84% 20%;    /* Blue-900 */
+    --md-on-primary: 213 100% 15%;          /* Blue-950 */
+    --md-on-primary-container: 214 100% 85%; /* Blue-200 */
     
-    --md-secondary: 30 20% 70%;             /* Warm Beige */
-    --md-secondary-container: 30 15% 25%;
-    --md-on-secondary: 30 20% 10%;
-    --md-on-secondary-container: 30 20% 85%;
+    --md-secondary: 188 100% 55%;           /* Cyan-400 */
+    --md-secondary-container: 186 82% 15%;  /* Cyan-900 */
+    --md-on-secondary: 186 100% 10%;       /* Cyan-950 */
+    --md-on-secondary-container: 185 96% 90%; /* Cyan-100 */
     
-    --md-tertiary: 340 20% 70%;             /* Soft Rose */
-    --md-tertiary-container: 340 15% 30%;
-    --md-on-tertiary: 340 20% 10%;
-    --md-on-tertiary-container: 340 20% 85%;
+    --md-tertiary: 217 83% 65%;             /* Blue-600 in dark */
+    --md-tertiary-container: 213 84% 20%;   /* Blue-900 */
+    --md-on-tertiary: 213 100% 15%;        /* Blue-950 */
+    --md-on-tertiary-container: 214 100% 85%; /* Blue-200 */
     
     --md-error: 0 70% 65%;
     --md-error-container: 0 70% 25%;

@@ -40,11 +40,11 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 	<!-- Hero Section with Featured Article -->
 	{#if featuredArticle}
-	<section class="section-spacing border-b border-md-outline dark:border-md-dark-outline">
+	<section class="section-spacing border-b border-md-outline dark:border-md-dark-outline" data-mpulse-section="hero" data-content-type="featured-article">
 		<div class="grid lg:grid-cols-2 gap-8 items-center">
 			<div>
-				<h1 class="article-title mb-4">
-					<a href="/article/{featuredArticle.id}" class="hover:underline">
+				<h1 class="article-title-animated mb-4">
+					<a href="/article/{featuredArticle.id}" class="hover:underline text-gradient">
 						{featuredArticle.title}
 					</a>
 				</h1>
@@ -52,11 +52,17 @@
 					{featuredArticle.excerpt}
 				</p>
 				<div class="flex items-center gap-4 mt-6">
-					<img 
-						src={featuredArticle.author.avatar} 
-						alt={featuredArticle.author.name}
-						class="author-avatar"
-					/>
+					{#if featuredArticle.author.name === 'Alexander Cedergren'}
+						<div class="author-avatar-ac">
+							AC
+						</div>
+					{:else}
+						<img 
+							src={featuredArticle.author.avatar} 
+							alt={featuredArticle.author.name}
+							class="author-avatar"
+						/>
+					{/if}
 					<div>
 						<p class="author-name">{featuredArticle.author.name}</p>
 						<p class="text-sm text-md-on-surface-variant">
@@ -64,8 +70,11 @@
 						</p>
 					</div>
 				</div>
-				<a href="/article/{featuredArticle.id}" class="btn-secondary inline-flex mt-6">
-					Read Article →
+					<a href="/article/{featuredArticle.id}" class="md-button-expressive md-button-cloud inline-flex items-center px-6 py-3 mt-6 group">
+					Read Article 
+					<svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+					</svg>
 				</a>
 			</div>
 			<div class="aspect-[16/9] overflow-hidden rounded-lg">
@@ -84,15 +93,22 @@
 	<!-- Main Content Grid -->
 	<div class="grid lg:grid-cols-3 gap-8 py-8">
 		<!-- Articles List -->
-		<div class="lg:col-span-2 space-y-8">
+		<div class="lg:col-span-2 space-y-8" data-mpulse-section="article-list" data-content-type="article-listing">
+		<div class="stagger-container animate">
 			{#each articles as article}
-				<article class="article-card group pb-8 border-b border-md-outline dark:border-md-dark-outline last:border-0">
+				<article class="stagger-item article-card-elevated group content-reveal visible">
 					<div class="flex items-start gap-4 mb-3">
-						<img 
-							src={article.author.avatar} 
-							alt={article.author.name}
-							class="author-avatar"
-						/>
+						{#if article.author.name === 'Alexander Cedergren'}
+							<div class="author-avatar-ac">
+								AC
+							</div>
+						{:else}
+							<img 
+								src={article.author.avatar} 
+								alt={article.author.name}
+								class="author-avatar"
+							/>
+						{/if}
 						<div class="flex-1">
 							<p class="author-name">{article.author.name}</p>
 							<p class="text-sm text-md-on-surface-variant">
@@ -135,6 +151,7 @@
 					</div>
 				</article>
 			{/each}
+		</div>
 			
 			<!-- Load More -->
 			<div class="text-center py-8">
@@ -145,7 +162,7 @@
 		</div>
 
 		<!-- Sidebar -->
-		<aside class="space-y-8">
+		<aside class="space-y-8" data-mpulse-section="sidebar" data-content-type="sidebar-widgets">
 			<!-- Trending -->
 			<section>
 				<h3 class="font-bold mb-4 flex items-center gap-2">

@@ -1,3 +1,10 @@
+/* Import modular Material Design 3 styles - must come before tailwind */
+@import './lib/styles/colors.css';
+@import './lib/styles/typography.css';
+@import './lib/styles/layout.css';
+@import './lib/styles/animations.css';
+@import './lib/styles/interactions.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,6 +51,56 @@
 }
 
 @layer components {
+  /* Material Design 3 Expressive Components */
+  
+  /* Dynamic Color-Adaptive Buttons */
+  .md-button-expressive {
+    @apply relative inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 ease-out overflow-hidden;
+    @apply hover:scale-105 active:scale-95;
+    @apply before:absolute before:inset-0 before:bg-current before:opacity-0 before:transition-opacity before:duration-200;
+    @apply hover:before:opacity-10 active:before:opacity-20;
+  }
+  
+  .md-button-cloud {
+    @apply md-button-expressive bg-gradient-to-r from-blue-500 to-cyan-500 text-white;
+    @apply hover:from-blue-600 hover:to-cyan-600 hover:shadow-lg hover:shadow-blue-500/25;
+  }
+  
+  .md-button-code {
+    @apply md-button-expressive bg-gradient-to-r from-green-500 to-emerald-500 text-white;
+    @apply hover:from-green-600 hover:to-emerald-600 hover:shadow-lg hover:shadow-green-500/25;
+  }
+  
+  .md-button-security {
+    @apply md-button-expressive bg-gradient-to-r from-orange-500 to-red-500 text-white;
+    @apply hover:from-orange-600 hover:to-red-600 hover:shadow-lg hover:shadow-orange-500/25;
+  }
+  
+  /* Floating Action Button with Contextual Icons */
+  .md-fab {
+    @apply fixed bottom-6 right-6 w-14 h-14 bg-md-primary text-md-on-primary rounded-full shadow-lg;
+    @apply flex items-center justify-center transition-all duration-300 hover:scale-110;
+    @apply hover:shadow-2xl hover:shadow-md-primary/30;
+  }
+  
+  /* Interactive Code Blocks */
+  .code-block-enhanced {
+    @apply relative bg-gray-900 rounded-lg overflow-hidden group;
+  }
+  
+  .code-block-enhanced:hover {
+    @apply shadow-xl shadow-blue-500/10;
+  }
+  
+  .code-block-header {
+    @apply flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700;
+  }
+  
+  .code-copy-button {
+    @apply px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition-colors;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+  
   /* Responsive Spacing */
   .section-spacing {
     @apply py-8 sm:py-12 md:py-16 lg:py-20;
@@ -53,17 +110,51 @@
     @apply space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16;
   }
 
-  /* Medium-inspired Typography */
+  /* Expressive Typography with Animations */
   .article-title {
-    @apply font-sans text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight;
+    @apply md-display-medium font-bold;
+    @apply transition-all duration-500 hover:scale-105;
+    @apply text-md-on-surface dark:text-md-dark-on-surface;
+    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  /* Apply gradient text only when supported, with fallback */
+  @supports (-webkit-background-clip: text) {
+    .article-title {
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  
+  /* Ensure text is visible on hover and in dark mode */
+  .article-title:hover {
+    -webkit-text-fill-color: unset;
+    @apply text-md-primary dark:text-md-primary;
+  }
+  
+  .article-title-animated {
+    @apply article-title;
+    animation: titleSlideIn 0.8s ease-out;
+  }
+  
+  @keyframes titleSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .article-subtitle {
-    @apply font-serif text-lg sm:text-xl md:text-2xl text-md-on-surface-variant leading-relaxed mt-4;
+    @apply md-headline-small text-md-on-surface-variant dark:text-md-dark-on-surface-variant mt-4;
   }
 
   .article-body {
-    @apply font-serif text-base sm:text-lg md:text-xl leading-[1.75] sm:leading-[1.8] md:leading-[1.9] text-md-on-surface dark:text-md-dark-on-surface;
+    @apply md-body-large text-md-on-surface dark:text-md-dark-on-surface;
   }
 
   .article-body p {
@@ -75,11 +166,11 @@
   }
 
   .article-body h2 {
-    @apply font-sans text-xl sm:text-2xl md:text-3xl font-bold mt-12 sm:mt-16 mb-4 sm:mb-6 text-md-on-surface dark:text-md-dark-on-surface;
+    @apply md-headline-medium mt-12 sm:mt-16 mb-4 sm:mb-6 text-md-on-surface dark:text-md-dark-on-surface;
   }
 
   .article-body h3 {
-    @apply font-sans text-lg sm:text-xl md:text-2xl font-bold mt-8 sm:mt-12 mb-3 sm:mb-4 text-md-on-surface dark:text-md-dark-on-surface;
+    @apply md-headline-small mt-8 sm:mt-12 mb-3 sm:mb-4 text-md-on-surface dark:text-md-dark-on-surface;
   }
 
   .article-body blockquote {
@@ -94,9 +185,31 @@
     @apply bg-md-surface-variant dark:bg-md-dark-surface-variant p-4 rounded-lg overflow-x-auto my-6;
   }
 
-  /* Navigation */
+  /* Dynamic Navigation with Expressive Feedback */
   .nav-link {
-    @apply text-sm font-medium text-md-on-surface-variant dark:text-md-dark-on-surface-variant hover:text-md-on-surface dark:hover:text-md-dark-on-surface transition-colors duration-200;
+    @apply relative text-sm font-medium text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
+    @apply hover:text-md-on-surface dark:hover:text-md-dark-on-surface transition-all duration-300;
+    @apply hover:scale-105;
+  }
+  
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-md-primary transition-all duration-300;
+    content: '';
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link-preview {
+    @apply absolute top-full left-1/2 transform -translate-x-1/2 mt-2;
+    @apply bg-md-surface-container dark:bg-md-dark-surface-container;
+    @apply p-3 rounded-lg shadow-lg opacity-0 pointer-events-none;
+    @apply transition-all duration-200;
+  }
+  
+  .nav-link:hover .nav-link-preview {
+    @apply opacity-100 pointer-events-auto;
   }
 
   .nav-link-active {
@@ -109,24 +222,37 @@
   }
 
   .btn-primary {
-    @apply btn bg-md-on-surface dark:bg-md-dark-on-surface text-md-surface dark:text-md-dark-surface hover:bg-md-on-surface/90 dark:hover:bg-md-dark-on-surface/90 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm;
+    @apply btn bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600 hover:shadow-lg hover:shadow-blue-500/25 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm transition-all duration-300;
   }
 
   .btn-secondary {
-    @apply btn border border-md-outline dark:border-md-dark-outline text-md-on-surface dark:text-md-dark-on-surface hover:bg-md-surface-variant dark:hover:bg-md-dark-surface-variant px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm;
+    @apply btn border border-blue-200 dark:border-blue-700 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm transition-all duration-300;
   }
 
   .btn-ghost {
     @apply btn text-md-on-surface-variant dark:text-md-dark-on-surface-variant hover:text-md-on-surface dark:hover:text-md-dark-on-surface hover:bg-md-surface-variant dark:hover:bg-md-dark-surface-variant px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm;
   }
 
-  /* Cards - Responsive */
+  /* Enhanced Cards with Sophisticated Interactions */
   .article-card {
-    @apply cursor-pointer transition-all duration-300 hover:translate-y-[-2px];
+    @apply cursor-pointer transition-all duration-200 hover:translate-y-[-2px];
+    @apply hover:shadow-lg hover:shadow-md-primary/10;
+    @apply bg-md-surface-container dark:bg-md-dark-surface-container;
+    @apply border border-md-outline-variant dark:border-md-dark-outline-variant hover:border-md-primary/20;
+    @apply rounded-xl p-6 mb-6;
+  }
+  
+  .article-card-elevated {
+    @apply article-card;
+    @apply bg-md-surface-container-low dark:bg-md-dark-surface-container-low;
+  }
+  
+  .article-card-image {
+    @apply transition-transform duration-300 group-hover:scale-105;
   }
 
   .article-card-title {
-    @apply font-sans text-lg sm:text-xl md:text-2xl font-bold leading-tight mb-2 transition-colors text-md-on-surface dark:text-md-dark-on-surface;
+    @apply md-title-large leading-tight mb-2 transition-colors text-md-on-surface dark:text-md-dark-on-surface;
   }
   
   .article-card:hover .article-card-title {
@@ -134,25 +260,56 @@
   }
 
   .article-card-excerpt {
-    @apply font-serif text-sm sm:text-base text-md-on-surface-variant dark:text-md-dark-on-surface-variant line-clamp-2 sm:line-clamp-3 mb-4;
+    @apply md-body-medium text-md-on-surface-variant dark:text-md-dark-on-surface-variant line-clamp-2 sm:line-clamp-3 mb-4;
   }
 
   .article-card-meta {
-    @apply flex items-center gap-3 text-xs sm:text-sm text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
+    @apply flex items-center gap-3 md-label-medium text-md-on-surface-variant dark:text-md-dark-on-surface-variant;
   }
 
-  /* Author */
+  /* Author - Enhanced to match SE logo quality */
   .author-avatar {
-    @apply w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-md-surface-variant object-cover;
+    @apply w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover;
+    @apply ring-2 ring-blue-500/20 dark:ring-blue-400/20;
+    @apply shadow-md;
+    @apply transition-all duration-300;
+  }
+  
+  .author-avatar:hover {
+    @apply ring-4 ring-blue-500/30 dark:ring-blue-400/30;
+    @apply shadow-lg scale-105;
+  }
+  
+  /* AC Avatar with gradient background like SE logo */
+  .author-avatar-ac {
+    @apply w-10 h-10 sm:w-12 sm:h-12 rounded-full;
+    @apply bg-gradient-to-r from-blue-500 to-cyan-500;
+    @apply flex items-center justify-center;
+    @apply text-white font-bold text-sm sm:text-base;
+    @apply ring-2 ring-blue-500/20 dark:ring-blue-400/20;
+    @apply shadow-md;
+    @apply transition-all duration-300;
+  }
+  
+  .author-avatar-ac:hover {
+    @apply ring-4 ring-blue-500/30 dark:ring-blue-400/30;
+    @apply shadow-lg scale-105;
+    @apply from-blue-600 to-cyan-600;
   }
 
   .author-name {
-    @apply font-medium text-xs sm:text-sm text-md-on-surface dark:text-md-dark-on-surface;
+    @apply md-label-medium text-md-on-surface dark:text-md-dark-on-surface;
+    @apply font-medium;
+    @apply transition-colors duration-200;
+  }
+  
+  .author-name:hover {
+    @apply text-md-primary;
   }
 
   /* Tags */
   .tag {
-    @apply inline-block px-2 sm:px-3 py-0.5 sm:py-1 bg-md-surface-variant dark:bg-md-dark-surface-variant text-md-on-surface-variant dark:text-md-dark-on-surface-variant rounded-full text-xs font-medium hover:bg-md-surface-container-high dark:hover:bg-md-dark-surface-bright transition-colors;
+    @apply inline-block px-2 sm:px-3 py-0.5 sm:py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full md-label-small font-medium hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-300;
   }
 
   /* Dividers */
@@ -231,5 +388,176 @@
   /* Aspect ratio boxes for responsive images */
   .aspect-responsive {
     @apply aspect-[4/3] sm:aspect-[16/9];
+  }
+  
+  /* Expressive Search Interface */
+  .search-container {
+    @apply relative transition-all duration-300;
+  }
+  
+  .search-input {
+    @apply w-full px-4 py-3 pl-12 bg-md-surface-container dark:bg-md-dark-surface-container;
+    @apply border border-md-outline dark:border-md-dark-outline rounded-full;
+    @apply focus:border-md-primary focus:ring-2 focus:ring-md-primary/20;
+    @apply transition-all duration-300 focus:scale-105;
+  }
+  
+  .search-results {
+    @apply absolute top-full left-0 right-0 mt-2 bg-md-surface dark:bg-md-dark-surface;
+    @apply border border-md-outline dark:border-md-dark-outline rounded-lg shadow-xl;
+    @apply opacity-0 translate-y-2 pointer-events-none transition-all duration-200;
+  }
+  
+  .search-container.active .search-results {
+    @apply opacity-100 translate-y-0 pointer-events-auto;
+  }
+  
+  /* Dynamic Loading States */
+  .loading-skeleton {
+    @apply animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200;
+    @apply dark:from-gray-700 dark:via-gray-600 dark:to-gray-700;
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite;
+  }
+  
+  @keyframes loading-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  .loading-dots {
+    @apply inline-flex space-x-1;
+  }
+  
+  .loading-dot {
+    @apply w-2 h-2 bg-md-primary rounded-full animate-bounce;
+  }
+  
+  .loading-dot:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .loading-dot:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  /* Content Reveal Animations */
+  .content-reveal {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .content-reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* Stagger Animation for Lists */
+  .stagger-item {
+    @apply opacity-0 translate-y-4 transition-all duration-500;
+  }
+  
+  .stagger-container.animate .stagger-item:nth-child(1) { animation-delay: 0ms; }
+  .stagger-container.animate .stagger-item:nth-child(2) { animation-delay: 100ms; }
+  .stagger-container.animate .stagger-item:nth-child(3) { animation-delay: 200ms; }
+  .stagger-container.animate .stagger-item:nth-child(4) { animation-delay: 300ms; }
+  .stagger-container.animate .stagger-item:nth-child(5) { animation-delay: 400ms; }
+  
+  .stagger-container.animate .stagger-item {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* Progress Indicators */
+  .progress-ring {
+    @apply relative w-16 h-16;
+  }
+  
+  .progress-ring-circle {
+    @apply fill-none stroke-md-primary stroke-2;
+    stroke-linecap: round;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    animation: progress-fill 2s ease-in-out forwards;
+  }
+  
+  @keyframes progress-fill {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  /* Hover Elevation Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg;
+  }
+  
+  .hover-lift-high {
+    @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl;
+  }
+  
+  /* Ripple Effect */
+  .ripple {
+    @apply relative overflow-hidden;
+  }
+  
+  .ripple::before {
+    @apply absolute inset-0 bg-current opacity-0 rounded-full transform scale-0;
+    content: '';
+    transition: transform 0.6s, opacity 0.6s;
+  }
+  
+  .ripple:active::before {
+    @apply opacity-20 scale-100;
+    transition: 0s;
+  }
+  
+  /* Typography Enhancements */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--md-primary), var(--md-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+  
+  /* Category-based Color Adaptation */
+  .content-cloud {
+    --accent-color: theme('colors.blue.500');
+    --accent-hover: theme('colors.blue.600');
+  }
+  
+  .content-code {
+    --accent-color: theme('colors.green.500');
+    --accent-hover: theme('colors.green.600');
+  }
+  
+  .content-security {
+    --accent-color: theme('colors.orange.500');
+    --accent-hover: theme('colors.orange.600');
+  }
+  
+  .content-ai {
+    --accent-color: theme('colors.purple.500');
+    --accent-hover: theme('colors.purple.600');
+  }
+  
+  /* Apply accent colors */
+  .accent-border {
+    border-color: var(--accent-color, theme('colors.gray.300'));
+  }
+  
+  .accent-bg {
+    background-color: var(--accent-color, theme('colors.gray.300'));
+  }
+  
+  .accent-text {
+    color: var(--accent-color, theme('colors.gray.600'));
+  }
+  
+  .accent-hover:hover {
+    background-color: var(--accent-hover, theme('colors.gray.400'));
   }
 }

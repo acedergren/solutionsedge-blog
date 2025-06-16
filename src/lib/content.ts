@@ -1,9 +1,33 @@
 import type { Article } from './types';
 
+// Generate tech-themed images using Lorem Picsum
+function generateTechImage(index: number): string {
+  // Using Lorem Picsum with tech-related image IDs
+  const techImageIds = [
+    '0',   // Laptop
+    '2',   // Macbook
+    '9',   // Aerial tech
+    '48',  // Dark tech workspace
+    '60',  // Tech setup
+    '96',  // Tech workspace
+    '119', // Computer screen
+    '160', // Office tech
+    '180', // Workspace
+    '201', // Nature tech blend
+    '225', // Tech environment
+    '230'  // Modern tech
+  ];
+  
+  const imageId = techImageIds[index % techImageIds.length];
+  // Using picsum.photos which works with both HTTP and HTTPS
+  return `https://picsum.photos/id/${imageId}/1200/600`;
+}
+
 // Import all markdown files
 const articleModules = import.meta.glob('/src/content/articles/*.md', { 
   eager: true,
-  as: 'raw'
+  query: '?raw',
+  import: 'default'
 });
 
 export function parseMarkdown(content: string): { metadata: any; content: string } {
@@ -56,6 +80,7 @@ export function parseMarkdown(content: string): { metadata: any; content: string
 export function getAllArticles(): Article[] {
   const articles: Article[] = [];
   
+  let index = 0;
   for (const [path, content] of Object.entries(articleModules)) {
     const { metadata, content: markdownContent } = parseMarkdown(content as string);
     
@@ -69,15 +94,16 @@ export function getAllArticles(): Article[] {
       content: markdownContent,
       author: {
         name: metadata.author || 'Anonymous',
-        avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(metadata.author || 'Anonymous')}&background=1a8917&color=fff`,
+        avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(metadata.author || 'Anonymous')}&background=3b82f6&color=fff`,
         bio: 'Solutions Engineer specializing in cloud and edge computing'
       },
       publishedAt: new Date(metadata.date || '2024-01-01'),
       readingTime: metadata.readingTime || 5,
       tags: metadata.tags || [],
-      imageUrl: metadata.imageUrl || `https://picsum.photos/800/400?random=${Math.floor(Math.random() * 100)}`,
+      imageUrl: metadata.imageUrl || generateTechImage(index),
       featured: metadata.featured || false
     });
+    index++;
   }
   
   return articles.sort((a, b) => 

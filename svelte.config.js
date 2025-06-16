@@ -16,7 +16,7 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: '404.html',
-			precompress: true,
+			precompress: false, // Disable compression since Akamai handles it at the edge
 			strict: true
 		}),
 		prerender: {

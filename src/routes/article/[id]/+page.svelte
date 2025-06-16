@@ -28,7 +28,7 @@
 	<meta name="description" content={article.excerpt} />
 </svelte:head>
 
-<article class="min-h-screen">
+<article class="min-h-screen" data-mpulse-section="article-detail" data-content-type="article" data-article-id="{article.id}" data-article-category="{article.tags[0] || 'general'}">
 	<!-- Hero Image -->
 	{#if article.imageUrl}
 		<div class="w-full h-[40vh] md:h-[60vh] relative">
@@ -42,12 +42,12 @@
 	{/if}
 	
 	<!-- Article Content -->
-	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10">
-		<div class="bg-md-surface dark:bg-md-dark-surface rounded-t-lg">
+	<div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 -mt-20 relative z-10">
+		<div class="bg-md-surface dark:bg-md-dark-surface rounded-t-xl shadow-2xl">
 			<!-- Title Section -->
-			<header class="pt-12 pb-8">
-				<h1 class="article-title mb-4">{article.title}</h1>
-				<p class="article-subtitle text-md-on-surface-variant dark:text-md-dark-on-surface-variant">
+			<header class="pt-20 pb-16 px-8 sm:px-12 lg:px-20">
+				<h1 class="article-title mb-8">{article.title}</h1>
+				<p class="article-subtitle text-md-on-surface-variant dark:text-md-dark-on-surface-variant text-lg leading-relaxed">
 					{article.excerpt}
 				</p>
 				
@@ -91,7 +91,7 @@
 			</header>
 			
 			<!-- Article Body -->
-			<div class="article-body pb-12">
+			<div class="article-body px-8 sm:px-12 lg:px-16 pb-16">
 				{@html article.content}
 			</div>
 			

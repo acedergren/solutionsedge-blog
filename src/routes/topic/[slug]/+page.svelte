@@ -87,7 +87,7 @@
 				content: '',
 				author: {
 					name: 'Alexander Cedergren',
-					avatar: 'https://ui-avatars.com/api/?name=Alexander+Cedergren&background=1a8917&color=fff',
+					avatar: 'https://ui-avatars.com/api/?name=Alexander+Cedergren&background=3b82f6&color=fff',
 					bio: 'Solutions Engineer'
 				},
 				publishedAt: new Date('2024-01-15'),
@@ -101,7 +101,7 @@
 				content: '',
 				author: {
 					name: 'Alexander Cedergren',
-					avatar: 'https://ui-avatars.com/api/?name=Alexander+Cedergren&background=1a8917&color=fff',
+					avatar: 'https://ui-avatars.com/api/?name=Alexander+Cedergren&background=3b82f6&color=fff',
 					bio: 'Solutions Engineer'
 				},
 				publishedAt: new Date('2024-01-12'),
@@ -242,7 +242,7 @@
 				<div class="space-y-4">
 					<div class="flex items-center gap-3">
 						<img 
-							src="https://ui-avatars.com/api/?name=Alexander+Cedergren&background=1a8917&color=fff" 
+							src="https://ui-avatars.com/api/?name=Alexander+Cedergren&background=3b82f6&color=fff" 
 							alt="Alexander Cedergren"
 							class="w-10 h-10 rounded-full"
 						/>
