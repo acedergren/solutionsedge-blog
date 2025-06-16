@@ -146,9 +146,6 @@
 						<a href="/topics" class="nav-link px-4 py-2 {$page.url.pathname === '/topics' ? 'nav-link-active' : ''}">
 							Topics
 						</a>
-						<a href="/editor" class="nav-link px-4 py-2 {$page.url.pathname === '/editor' ? 'nav-link-active' : ''}">
-							Editor
-						</a>
 					</nav>
 				</div>
 
