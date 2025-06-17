@@ -27,7 +27,14 @@
     "perf:report": "node scripts/generate-performance-report.js",
     "perf:full": "npm run build:perf && npm run build:prerender-perf && npm run tree-shake:analyze && npm run perf:report",
     "analyze:full": "npm run arch:analyze && npm run code:quality && npm run ts:safety && npm run security:analyze && npm run tree-shake:analyze",
-    "assess:comprehensive": "npm run analyze:full && node scripts/comprehensive-assessment.js"
+    "assess:comprehensive": "npm run analyze:full && node scripts/comprehensive-assessment.js",
+    "dev:edge": "concurrently \"npm run dev\" \"npm run dev:server\"",
+    "dev:server": "cd dev-server && npm install && npm run dev",
+    "test:edge": "cd dev-server && npm test",
+    "build:edge": "cd edgeworkers/auth-gateway && npm run build",
+    "build:search": "node scripts/build-search-index.js",
+    "build:search-edge": "cd edgeworkers/search-service && npm run build",
+    "build:all-edge": "npm run build:edge && npm run build:search-edge && npm run build:search"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.0",
@@ -47,7 +54,8 @@
     "typescript": "^5.0.0",
     "vite": "^5.0.3",
     "vite-plugin-compression2": "^0.11.0",
-    "vite-plugin-image-optimizer": "^1.1.7"
+    "vite-plugin-image-optimizer": "^1.1.7",
+    "concurrently": "^8.2.2"
   },
   "type": "module",
   "dependencies": {

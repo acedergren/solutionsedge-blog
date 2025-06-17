@@ -1,0 +1,14 @@
+{
+  "edgeworker-version": "1.0.0",
+  "description": "High-performance search service with autocomplete and full-text search capabilities",
+  "author": "Alexander Cedergren <alex@solutionsedge.io>",
+  "created": "2024-06-16",
+  "main": "main.js",
+  "config": {
+    "memory": 256,
+    "timeout": 15000
+  },
+  "dependencies": {
+    "edgekv": "1.0.0"
+  }
+}

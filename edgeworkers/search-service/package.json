@@ -1,0 +1,36 @@
+{
+  "name": "@solutionsedge/search-service",
+  "version": "1.0.0",
+  "description": "High-performance search EdgeWorker with autocomplete and full-text search",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc && npm run bundle",
+    "bundle": "node scripts/bundle.js",
+    "watch": "tsc --watch",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "dev": "tsc --watch",
+    "deploy:staging": "akamai edgeworkers upload-bundle --bundle ./dist/bundle.tar.gz --edgeworker-id $STAGING_SEARCH_EDGEWORKER_ID",
+    "deploy:prod": "akamai edgeworkers upload-bundle --bundle ./dist/bundle.tar.gz --edgeworker-id $PROD_SEARCH_EDGEWORKER_ID"
+  },
+  "devDependencies": {
+    "@types/akamai-edgeworkers": "^1.1.18",
+    "typescript": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "tar": "^6.1.15"
+  },
+  "keywords": [
+    "akamai",
+    "edgeworkers",
+    "search",
+    "autocomplete",
+    "full-text-search",
+    "edge-computing"
+  ],
+  "author": "Alexander Cedergren <alex@solutionsedge.io>",
+  "license": "MPL-2.0"
+}

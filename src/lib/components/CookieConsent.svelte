@@ -60,9 +60,11 @@
 	}
 
 	function rejectAll() {
-		// Redirect to about:blank if cookies are rejected
+		// Show informative page about why cookies are needed
 		if (browser) {
-			window.location.href = 'about:blank';
+			// Set a flag and reload to show the rejection info
+			window.location.hash = '#cookie-rejected';
+			window.location.reload();
 		}
 	}
 

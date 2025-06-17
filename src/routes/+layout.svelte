@@ -5,6 +5,7 @@
 	import { browser } from '$app/environment';
 	import { getAllArticles } from '$lib/content';
 	import CookieConsent from '$lib/components/CookieConsent.svelte';
+	import CookieRejectionInfo from '$lib/components/CookieRejectionInfo.svelte';
 	
 	let isDarkMode = false;
 	let isScrolled = false;
@@ -471,3 +472,6 @@
 
 <!-- Cookie Consent Banner -->
 <CookieConsent />
+
+<!-- Cookie Rejection Info -->
+<CookieRejectionInfo />

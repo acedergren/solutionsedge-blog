@@ -1,0 +1,14 @@
+{
+  "edgeworker-version": "1.0.0",
+  "description": "GitHub OAuth authentication gateway for Solutions Edge editor",
+  "author": "Alexander Cedergren <alex@solutionsedge.io>",
+  "created": "2024-06-16",
+  "main": "main.js",
+  "config": {
+    "memory": 128,
+    "timeout": 30000
+  },
+  "dependencies": {
+    "edgekv": "1.0.0"
+  }
+}
