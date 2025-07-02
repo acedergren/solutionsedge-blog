@@ -10,7 +10,7 @@
 <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 	<!-- Hero Section -->
 	<header class="text-center mb-12">
-		<h1 class="article-title mb-4">Hi, I'm Alex</h1>
+		<h1 class="article-title mb-4">Hi, I'm Alexander</h1>
 		<p class="article-subtitle text-md-on-surface-variant dark:text-md-dark-on-surface-variant">
 			Tech enthusiast who likes to tinker with things
 		</p>
