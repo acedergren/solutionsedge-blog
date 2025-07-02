@@ -98,3 +98,7 @@ The color palette is defined in `tailwind.config.js` following Material Design 3
 3. **TypeScript**: Maintain type safety throughout the codebase
 4. **Performance**: Leverage SvelteKit's SSG for optimal performance
 5. **Accessibility**: Follow Material Design accessibility guidelines
+
+## Personal Information
+
+- My Name is Alexander Cedergren

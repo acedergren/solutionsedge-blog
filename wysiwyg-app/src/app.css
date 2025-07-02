@@ -1,0 +1,352 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource/jetbrains-mono';
+@import '@fontsource-variable/source-serif-4';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --color-primary: #00838f;
+    --color-primary-container: #cff7fc;
+    --color-on-primary: #ffffff;
+    --color-on-primary-container: #00363c;
+    
+    --color-secondary: #4b636b;
+    --color-secondary-container: #cee7f1;
+    --color-on-secondary: #ffffff;
+    --color-on-secondary-container: #061f26;
+    
+    --color-tertiary: #545e7e;
+    --color-tertiary-container: #dce1ff;
+    --color-on-tertiary: #ffffff;
+    --color-on-tertiary-container: #101c37;
+    
+    --color-surface: #fafcfd;
+    --color-surface-variant: #dbe4e7;
+    --color-on-surface: #191c1d;
+    --color-on-surface-variant: #3f484b;
+    
+    --color-background: #fafcfd;
+    --color-on-background: #191c1d;
+    
+    --color-outline: #6f797c;
+    --color-outline-variant: #bfc8cb;
+    
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad6;
+    --color-on-error-container: #410002;
+  }
+  
+  .dark {
+    /* Dark Mode Colors */
+    --color-primary: #5adaf7;
+    --color-primary-container: #004f58;
+    --color-on-primary: #003741;
+    --color-on-primary-container: #cff7fc;
+    
+    --color-secondary: #b2cbd4;
+    --color-secondary-container: #334b53;
+    --color-on-secondary: #1d353c;
+    --color-on-secondary-container: #cee7f1;
+    
+    --color-tertiary: #bfc5e8;
+    --color-tertiary-container: #3c4664;
+    --color-on-tertiary: #27324d;
+    --color-on-tertiary-container: #dce1ff;
+    
+    --color-surface: #191c1d;
+    --color-surface-variant: #3f484b;
+    --color-on-surface: #e1e3e4;
+    --color-on-surface-variant: #bfc8cb;
+    
+    --color-background: #191c1d;
+    --color-on-background: #e1e3e4;
+    
+    --color-outline: #899295;
+    --color-outline-variant: #3f484b;
+    
+    --color-error: #ffb4ab;
+    --color-on-error: #690005;
+    --color-error-container: #93000a;
+    --color-on-error-container: #ffdad6;
+  }
+  
+  html {
+    @apply antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-on-background font-sans;
+  }
+
+  /* Typography Scale */
+  h1 {
+    @apply text-5xl md:text-6xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-medium;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl font-medium;
+  }
+
+  h6 {
+    @apply text-base md:text-lg font-medium;
+  }
+
+  /* Focus styles */
+  *:focus {
+    @apply outline-none;
+  }
+
+  *:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Button components */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-95;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-on-primary hover:brightness-110 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply btn bg-surface-variant text-on-surface-variant border border-outline hover:bg-surface hover:shadow-md;
+  }
+
+  .btn-tertiary {
+    @apply btn bg-transparent text-primary hover:bg-primary/10;
+  }
+
+  /* Card components */
+  .card {
+    @apply bg-surface rounded-2xl border border-outline-variant shadow-sm overflow-hidden transition-all duration-300;
+  }
+
+  .card-interactive {
+    @apply card hover:shadow-lg hover:-translate-y-1 hover:border-outline cursor-pointer;
+  }
+
+  /* Input components */
+  .input {
+    @apply w-full px-4 py-3 bg-surface-variant text-on-surface border border-outline-variant rounded-lg transition-all duration-200;
+    @apply hover:border-outline focus:border-primary focus:ring-2 focus:ring-primary/20;
+  }
+
+  /* Navigation components */
+  .nav-link {
+    @apply text-on-surface-variant hover:text-primary transition-colors duration-200 relative font-medium;
+  }
+
+  .nav-link-active {
+    @apply nav-link text-primary;
+  }
+
+  /* Container components */
+  .container-surface {
+    @apply bg-surface rounded-2xl p-6 border border-outline-variant;
+  }
+
+  .container-surface-low {
+    @apply bg-surface-variant rounded-2xl p-6;
+  }
+
+  /* Floating Action Button */
+  .fab {
+    @apply fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center transition-all duration-300;
+    @apply hover:shadow-2xl hover:scale-110 active:scale-95;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    @apply absolute z-50 px-3 py-1.5 text-sm bg-surface-variant text-on-surface-variant rounded-lg shadow-lg opacity-0 pointer-events-none transition-all duration-200;
+  }
+
+  .tooltip-visible {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  /* Loading states */
+  .skeleton {
+    @apply bg-gradient-to-r from-surface-variant via-surface to-surface-variant animate-pulse rounded-lg;
+  }
+
+  /* Notification */
+  .notification {
+    @apply fixed top-4 right-4 max-w-md bg-surface border border-outline rounded-xl shadow-xl p-4 transform transition-all duration-300;
+  }
+
+  /* Editor specific */
+  .editor-toolbar {
+    @apply bg-surface-variant border-b border-outline-variant p-2 flex items-center gap-1 sticky top-0 z-40;
+  }
+
+  .editor-button {
+    @apply p-2 rounded-lg text-on-surface-variant hover:bg-surface hover:text-on-surface transition-all duration-200;
+  }
+
+  .editor-button-active {
+    @apply editor-button bg-primary/10 text-primary;
+  }
+
+  /* Preview pane */
+  .preview-pane {
+    @apply bg-surface p-8 prose prose-lg max-w-none;
+  }
+  
+  /* Dark mode prose */
+  .dark .prose {
+    @apply prose-invert;
+  }
+}
+
+@layer utilities {
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-primary via-primary/90 to-primary/80;
+  }
+  
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-br from-secondary via-secondary/90 to-secondary/80;
+  }
+  
+  .bg-gradient-surface {
+    @apply bg-gradient-to-br from-surface via-surface to-surface-variant;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Backdrop blur for modals */
+  .backdrop-material {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .dark .backdrop-material {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-outline-variant) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-outline-variant);
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-outline);
+  }
+  
+  /* Custom shadows */
+  .shadow-elevation-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  
+  .shadow-elevation-2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  
+  .shadow-elevation-3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  
+  .shadow-elevation-4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  
+  .shadow-elevation-5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Dark mode utilities */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

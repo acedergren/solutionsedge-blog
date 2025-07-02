@@ -11,3 +11,9 @@ vite.config.ts.timestamp-*
 
 # Exclude written content
 /src/content/
+# WYSIWYG Editor
+wysiwyg-app/.env
+wysiwyg-app/node_modules/
+wysiwyg-app/.svelte-kit/
+wysiwyg-app/build/
+wysiwyg-app/dev.log
