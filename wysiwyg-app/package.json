@@ -37,7 +37,7 @@
 	},
 	"dependencies": {
 		"@auth/sveltekit": "^1.10.0",
-		"@aws-sdk/client-s3": "^3.832.0",
+		"@aws-sdk/client-s3": "^3.956.0",
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@tailwindcss/postcss": "^4.1.10",
 		"@types/dompurify": "^3.0.5",
