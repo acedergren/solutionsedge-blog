@@ -51,7 +51,7 @@
 		"puppeteer": "^24.10.2",
 		"quill": "^2.0.3",
 		"quill-delta-to-html": "^0.12.1",
-		"sharp": "^0.34.2",
+		"sharp": "^0.34.5",
 		"turndown": "^7.2.0"
 	}
 }
